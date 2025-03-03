@@ -1,0 +1,23 @@
+#
+# Makefile for Unit Test manager
+#
+
+LIBRARY = libunittest.a
+TESTSRC = $(wildcard *.cpp)
+TESTHDR = $(wildcard *.h)
+TESTOBJ = $(TESTSRC:.cpp=.o)
+CC = g++
+CFLAGS =
+
+all: $(TESTSRC) $(LIBRARY) Makefile
+
+$(LIBRARY): $(TESTOBJ) Makefile
+	ar rcs $(LIBRARY) $(TESTOBJ)
+
+.cpp.o:
+	$(CC) -c $(CFLAGS) $(INCLUDE) $(DEBUG) $(PLATFORM) $< -o $@
+
+clean:
+	$(RM) $(OBJECTS) $(TESTOBJ) $(LIBRARY) core *.log Makefile.bak *~
+
+# DO NOT DELETE
