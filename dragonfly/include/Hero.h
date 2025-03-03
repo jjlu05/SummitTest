@@ -1,7 +1,8 @@
 //
 // Hero.h
 //
-
+#ifndef HERO_H
+#define HERO_H
 #include "EventKeyboard.h"
 #include "EventMouse.h"
 #include "Object.h"
@@ -28,3 +29,4 @@ class Hero : public df::Object {
   ~Hero();
   int eventHandler(const df::Event *p_e);
 };
+#endif

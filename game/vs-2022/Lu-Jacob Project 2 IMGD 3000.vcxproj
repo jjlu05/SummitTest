@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\dragonfly\include\Animation.h" />
+    <ClInclude Include="..\..\dragonfly\include\Arrow.h" />
     <ClInclude Include="..\..\dragonfly\include\Bat.h" />
     <ClInclude Include="..\..\dragonfly\include\Box.h" />
     <ClInclude Include="..\..\dragonfly\include\Bullet.h" />
@@ -52,6 +53,7 @@
     <ClInclude Include="..\..\dragonfly\include\ResourceManager.h" />
     <ClInclude Include="..\..\dragonfly\include\Reticle.h" />
     <ClInclude Include="..\..\dragonfly\include\Saucer.h" />
+    <ClInclude Include="..\..\dragonfly\include\Skeleton.h" />
     <ClInclude Include="..\..\dragonfly\include\Sound.h" />
     <ClInclude Include="..\..\dragonfly\include\Sprite.h" />
     <ClInclude Include="..\..\dragonfly\include\Star.h" />
@@ -63,6 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\dragonfly\include\Animation.cpp" />
+    <ClCompile Include="..\..\dragonfly\include\Arrow.cpp" />
     <ClCompile Include="..\..\dragonfly\include\Bat.cpp" />
     <ClCompile Include="..\..\dragonfly\include\Box.cpp" />
     <ClCompile Include="..\..\dragonfly\include\Bullet.cpp" />
@@ -95,6 +98,7 @@
     <ClCompile Include="..\..\dragonfly\include\ResourceManager.cpp" />
     <ClCompile Include="..\..\dragonfly\include\Reticle.cpp" />
     <ClCompile Include="..\..\dragonfly\include\Saucer.cpp" />
+    <ClCompile Include="..\..\dragonfly\include\Skeleton.cpp" />
     <ClCompile Include="..\..\dragonfly\include\Sound.cpp" />
     <ClCompile Include="..\..\dragonfly\include\Sprite.cpp" />
     <ClCompile Include="..\..\dragonfly\include\Star.cpp" />
