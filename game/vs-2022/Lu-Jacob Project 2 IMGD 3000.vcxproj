@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\dragonfly\include\Animation.h" />
+    <ClInclude Include="..\..\dragonfly\include\Bat.h" />
+    <ClInclude Include="..\..\dragonfly\include\Box.h" />
+    <ClInclude Include="..\..\dragonfly\include\Bullet.h" />
+    <ClInclude Include="..\..\dragonfly\include\Clock.h" />
+    <ClInclude Include="..\..\dragonfly\include\Color.h" />
+    <ClInclude Include="..\..\dragonfly\include\DisplayManager.h" />
+    <ClInclude Include="..\..\dragonfly\include\Event.h" />
+    <ClInclude Include="..\..\dragonfly\include\EventCollision.h" />
+    <ClInclude Include="..\..\dragonfly\include\EventKeyboard.h" />
+    <ClInclude Include="..\..\dragonfly\include\EventMouse.h" />
+    <ClInclude Include="..\..\dragonfly\include\EventNuke.h" />
+    <ClInclude Include="..\..\dragonfly\include\EventOut.h" />
+    <ClInclude Include="..\..\dragonfly\include\EventStep.h" />
+    <ClInclude Include="..\..\dragonfly\include\EventView.h" />
+    <ClInclude Include="..\..\dragonfly\include\Explosion.h" />
+    <ClInclude Include="..\..\dragonfly\include\Frame.h" />
+    <ClInclude Include="..\..\dragonfly\include\GameManager.h" />
+    <ClInclude Include="..\..\dragonfly\include\GameOver.h" />
+    <ClInclude Include="..\..\dragonfly\include\GameStart.h" />
+    <ClInclude Include="..\..\dragonfly\include\Ground.h" />
+    <ClInclude Include="..\..\dragonfly\include\Hero.h" />
+    <ClInclude Include="..\..\dragonfly\include\InputManager.h" />
+    <ClInclude Include="..\..\dragonfly\include\Ledge.h" />
+    <ClInclude Include="..\..\dragonfly\include\LogManager.h" />
+    <ClInclude Include="..\..\dragonfly\include\Manager.h" />
+    <ClInclude Include="..\..\dragonfly\include\Music.h" />
+    <ClInclude Include="..\..\dragonfly\include\Object.h" />
+    <ClInclude Include="..\..\dragonfly\include\ObjectList.h" />
+    <ClInclude Include="..\..\dragonfly\include\Points.h" />
+    <ClInclude Include="..\..\dragonfly\include\ResourceManager.h" />
+    <ClInclude Include="..\..\dragonfly\include\Reticle.h" />
+    <ClInclude Include="..\..\dragonfly\include\Saucer.h" />
+    <ClInclude Include="..\..\dragonfly\include\Sound.h" />
+    <ClInclude Include="..\..\dragonfly\include\Sprite.h" />
+    <ClInclude Include="..\..\dragonfly\include\Star.h" />
+    <ClInclude Include="..\..\dragonfly\include\utility.h" />
+    <ClInclude Include="..\..\dragonfly\include\Vector.h" />
+    <ClInclude Include="..\..\dragonfly\include\ViewObject.h" />
+    <ClInclude Include="..\..\dragonfly\include\Wall.h" />
+    <ClInclude Include="..\..\dragonfly\include\WorldManager.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\dragonfly\include\Animation.cpp" />
+    <ClCompile Include="..\..\dragonfly\include\Bat.cpp" />
+    <ClCompile Include="..\..\dragonfly\include\Box.cpp" />
+    <ClCompile Include="..\..\dragonfly\include\Bullet.cpp" />
+    <ClCompile Include="..\..\dragonfly\include\Clock.cpp" />
+    <ClCompile Include="..\..\dragonfly\include\DisplayManager.cpp" />
+    <ClCompile Include="..\..\dragonfly\include\Event.cpp" />
+    <ClCompile Include="..\..\dragonfly\include\EventCollision.cpp" />
+    <ClCompile Include="..\..\dragonfly\include\EventKeyboard.cpp" />
+    <ClCompile Include="..\..\dragonfly\include\EventMouse.cpp" />
+    <ClCompile Include="..\..\dragonfly\include\EventNuke.cpp" />
+    <ClCompile Include="..\..\dragonfly\include\EventOut.cpp" />
+    <ClCompile Include="..\..\dragonfly\include\EventStep.cpp" />
+    <ClCompile Include="..\..\dragonfly\include\EventView.cpp" />
+    <ClCompile Include="..\..\dragonfly\include\Explosion.cpp" />
+    <ClCompile Include="..\..\dragonfly\include\Frame.cpp" />
+    <ClCompile Include="..\..\dragonfly\include\game (2).cpp" />
+    <ClCompile Include="..\..\dragonfly\include\GameManager.cpp" />
+    <ClCompile Include="..\..\dragonfly\include\GameOver.cpp" />
+    <ClCompile Include="..\..\dragonfly\include\GameStart.cpp" />
+    <ClCompile Include="..\..\dragonfly\include\Ground.cpp" />
+    <ClCompile Include="..\..\dragonfly\include\Hero.cpp" />
+    <ClCompile Include="..\..\dragonfly\include\InputManager.cpp" />
+    <ClCompile Include="..\..\dragonfly\include\Ledge.cpp" />
+    <ClCompile Include="..\..\dragonfly\include\LogManager.cpp" />
+    <ClCompile Include="..\..\dragonfly\include\Manager.cpp" />
+    <ClCompile Include="..\..\dragonfly\include\Music.cpp" />
+    <ClCompile Include="..\..\dragonfly\include\Object.cpp" />
+    <ClCompile Include="..\..\dragonfly\include\ObjectList.cpp" />
+    <ClCompile Include="..\..\dragonfly\include\Points.cpp" />
+    <ClCompile Include="..\..\dragonfly\include\ResourceManager.cpp" />
+    <ClCompile Include="..\..\dragonfly\include\Reticle.cpp" />
+    <ClCompile Include="..\..\dragonfly\include\Saucer.cpp" />
+    <ClCompile Include="..\..\dragonfly\include\Sound.cpp" />
+    <ClCompile Include="..\..\dragonfly\include\Sprite.cpp" />
+    <ClCompile Include="..\..\dragonfly\include\Star.cpp" />
+    <ClCompile Include="..\..\dragonfly\include\utility.cpp" />
+    <ClCompile Include="..\..\dragonfly\include\Vector.cpp" />
+    <ClCompile Include="..\..\dragonfly\include\ViewObject.cpp" />
+    <ClCompile Include="..\..\dragonfly\include\Wall.cpp" />
+    <ClCompile Include="..\..\dragonfly\include\WorldManager.cpp" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>17.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{70918161-00b7-4a7c-a13b-a579f959b0ff}</ProjectGuid>
+    <RootNamespace>LuJacobProject2IMGD3000</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>C:\Users\jacob\Downloads\Lu-Jacob Project 2 IMGD 3000\dragonfly\x64\Debug\</OutDir>
+    <IncludePath>C:\Users\jacob\SummitRush\SFML-3.0\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\jacob\SummitRush\SFML-3.0\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IncludePath>C:\Users\jacob\SummitRush\SFML-3.0\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\jacob\SummitRush\SFML-3.0\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <IncludePath>C:\Users\jacob\Downloads\Lu-Jacob Project 2 IMGD 3000\SFML-3.0\include;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <IncludePath>C:\Users\jacob\Downloads\Lu-Jacob Project 2 IMGD 3000\SFML-3.0\include;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>sfml-system-d.lib;sfml-window-d.lib;sfml-graphics-d.lib;sfml-audio-d.lib;sfml-network-d.lib;Winmm.lib;Ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>sfml-system-d.lib;sfml-window-d.lib;sfml-graphics-d.lib;sfml-audio-d.lib;sfml-network-d.lib;Winmm.lib;Ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

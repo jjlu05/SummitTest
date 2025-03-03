@@ -1,0 +1,14 @@
+﻿  Hero.cpp
+C:\Users\jacob\SummitRush\SFML-3.0\include\SFML\System\Exception.hpp(41,47): warning C4275: non dll-interface class 'std::runtime_error' used as base for dll-interface class 'sf::Exception'
+  (compiling source file '../../dragonfly/include/Hero.cpp')
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\stdexcept(100,19):
+      see declaration of 'std::runtime_error'
+      C:\Users\jacob\SummitRush\SFML-3.0\include\SFML\System\Exception.hpp(41,23):
+      see declaration of 'sf::Exception'
+  
+C:\Users\jacob\SummitRush\dragonfly\include\Hero.cpp(139,17): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\jacob\SummitRush\dragonfly\include\Hero.cpp(151,17): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\jacob\SummitRush\dragonfly\include\Hero.cpp(161,17): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\jacob\SummitRush\dragonfly\include\Hero.cpp(241,86): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\jacob\SummitRush\dragonfly\include\Hero.cpp(260,68): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  Lu-Jacob Project 2 IMGD 3000.vcxproj -> C:\Users\jacob\Downloads\Lu-Jacob Project 2 IMGD 3000\dragonfly\x64\Debug\Lu-Jacob Project 2 IMGD 3000.exe

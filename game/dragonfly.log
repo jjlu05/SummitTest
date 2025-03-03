@@ -1,0 +1,38 @@
+18:11:26    0 ****************************************************
+18:11:26    0 ** Dragonfly version 4.21 **
+18:11:26    0 ** Game engine started **
+18:11:26    0 ****************************************************
+18:11:41  353 Hit! Lives: 3, Hearts: 2
+18:11:41  355 GameManager::run(): Can't keep up! frame_time 33 ms, split 33 ms
+18:11:43  429 Hit! Lives: 2, Hearts: 2
+18:11:44  457 Hit! Lives: 1, Hearts: 2
+18:11:54  746 Hit! Lives: 3, Hearts: 1
+18:11:56  806 Hit! Lives: 2, Hearts: 1
+18:11:57  835 GameManager::run(): Can't keep up! frame_time 33 ms, split 35 ms
+18:11:57  841 GameManager::run(): Can't keep up! frame_time 33 ms, split 39 ms
+18:11:57  858 Hit! Lives: 1, Hearts: 1
+18:11:57  858 GameManager::run(): Can't keep up! frame_time 33 ms, split 53 ms
+18:12:00  925 GameManager::run(): Can't keep up! frame_time 33 ms, split 34 ms
+18:12:01  964 GameManager::run(): Can't keep up! frame_time 33 ms, split 39 ms
+18:12:18 1467 Hit! Lives: 3, Hearts: 2
+18:12:18 1468 Hit! Lives: 3, Hearts: 2
+18:12:18 1469 Hit! Lives: 3, Hearts: 2
+18:12:18 1470 Hit! Lives: 3, Hearts: 2
+18:12:32 1900 Hit! Lives: 3, Hearts: 2
+18:12:32 1901 Hit! Lives: 3, Hearts: 2
+18:12:32 1902 Hit! Lives: 3, Hearts: 2
+18:12:32 1903 Hit! Lives: 3, Hearts: 2
+18:12:35 1994 GameManager::run(): Can't keep up! frame_time 33 ms, split 38 ms
+18:12:49 2418 GameManager::run(): Can't keep up! frame_time 33 ms, split 34 ms
+18:12:50 2453 Hit! Lives: 3, Hearts: 2
+18:12:50 2454 Hit! Lives: 3, Hearts: 2
+18:12:50 2455 Hit! Lives: 3, Hearts: 2
+18:12:50 2456 Hit! Lives: 3, Hearts: 2
+18:12:53 2527 GameManager::run(): Can't keep up! frame_time 33 ms, split 41 ms
+18:12:53 2533 GameManager::run(): Can't keep up! frame_time 33 ms, split 48 ms
+18:12:56 2623 GameManager::run(): Can't keep up! frame_time 33 ms, split 39 ms
+18:12:57 2655 GameManager::run(): Can't keep up! frame_time 33 ms, split 43 ms
+18:13:00 2746 GameManager::run(): Can't keep up! frame_time 33 ms, split 58 ms
+18:13:01 2777 SceneGraph::removeObject(): Error removing Object (id 331)! Pointer is 0000023059A182B0.
+18:13:01 2777 ****************************************************
+18:13:01 2777 ** Game engine stopped **
