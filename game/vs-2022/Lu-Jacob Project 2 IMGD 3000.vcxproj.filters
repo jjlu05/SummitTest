@@ -144,6 +144,9 @@
     <ClInclude Include="..\..\dragonfly\include\Skeleton.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\dragonfly\include\Mole.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\dragonfly\include\Manager.cpp">
@@ -273,6 +276,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\dragonfly\include\Skeleton.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dragonfly\include\Mole.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

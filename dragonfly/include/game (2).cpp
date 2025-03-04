@@ -48,6 +48,9 @@ int main(int argc, char* argv[]) {
 
 // Load resources (sprites, sound effects, music).
 void loadResources(void) {
+    RM.loadSprite("skeleton.txt", "skeleton");
+    RM.loadSprite("mole.txt", "mole");
+
     RM.loadSprite("ledge.txt", "ledge");
     RM.loadSprite("wall.txt", "wall");
     RM.loadSprite("saucer-spr.txt", "saucer");
@@ -68,9 +71,7 @@ void loadResources(void) {
 // Populate world with some objects.
 void populateWorld(void) {
 
-    // Spawn some Stars.
-    for (int i = 0; i < 16; i++)
-        new Star;
+  
 
     // Create GameStart object.
     GameStart *test = new GameStart();

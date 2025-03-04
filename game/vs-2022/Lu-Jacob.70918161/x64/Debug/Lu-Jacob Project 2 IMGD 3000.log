@@ -1,4 +1,21 @@
-﻿  Hero.cpp
+﻿  GameStart.cpp
+C:\Users\jacob\SummitRush\SFML-3.0\include\SFML\System\Exception.hpp(41,47): warning C4275: non dll-interface class 'std::runtime_error' used as base for dll-interface class 'sf::Exception'
+  (compiling source file '../../dragonfly/include/GameStart.cpp')
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\stdexcept(100,19):
+      see declaration of 'std::runtime_error'
+      C:\Users\jacob\SummitRush\SFML-3.0\include\SFML\System\Exception.hpp(41,23):
+      see declaration of 'sf::Exception'
+  
+C:\Users\jacob\SummitTest\dragonfly\include\DisplayManager.h(17,49): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+  (compiling source file '../../dragonfly/include/GameStart.cpp')
+  
+C:\Users\jacob\SummitTest\dragonfly\include\DisplayManager.h(18,47): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+  (compiling source file '../../dragonfly/include/GameStart.cpp')
+  
+C:\Users\jacob\SummitTest\dragonfly\include\GameStart.cpp(92,24): warning C4305: 'argument': truncation from 'int' to 'bool'
+C:\Users\jacob\SummitTest\dragonfly\include\GameStart.cpp(136,48): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\jacob\SummitTest\dragonfly\include\GameStart.cpp(136,35): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Hero.cpp
 C:\Users\jacob\SummitRush\SFML-3.0\include\SFML\System\Exception.hpp(41,47): warning C4275: non dll-interface class 'std::runtime_error' used as base for dll-interface class 'sf::Exception'
   (compiling source file '../../dragonfly/include/Hero.cpp')
       C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\stdexcept(100,19):
@@ -6,9 +23,10 @@ C:\Users\jacob\SummitRush\SFML-3.0\include\SFML\System\Exception.hpp(41,47): war
       C:\Users\jacob\SummitRush\SFML-3.0\include\SFML\System\Exception.hpp(41,23):
       see declaration of 'sf::Exception'
   
-C:\Users\jacob\SummitTest\dragonfly\include\Hero.cpp(145,23): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\jacob\SummitTest\dragonfly\include\Hero.cpp(157,22): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\jacob\SummitTest\dragonfly\include\Hero.cpp(167,21): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\jacob\SummitTest\dragonfly\include\Hero.cpp(247,86): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\jacob\SummitTest\dragonfly\include\Hero.cpp(266,68): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\jacob\SummitTest\dragonfly\include\Hero.cpp(162,37): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\jacob\SummitTest\dragonfly\include\Hero.cpp(181,36): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\jacob\SummitTest\dragonfly\include\Hero.cpp(197,22): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\jacob\SummitTest\dragonfly\include\Hero.cpp(310,28): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  Skeleton.cpp
+  Generating Code...
   Lu-Jacob Project 2 IMGD 3000.vcxproj -> C:\Users\jacob\Downloads\Lu-Jacob Project 2 IMGD 3000\dragonfly\x64\Debug\Lu-Jacob Project 2 IMGD 3000.exe

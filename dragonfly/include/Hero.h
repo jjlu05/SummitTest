@@ -11,6 +11,8 @@
 class Hero : public df::Object {
 
  private:
+	 float desiredX;
+
   Reticle *p_reticle;
   int fire_slowdown;
   int fire_countdown;

@@ -23,7 +23,6 @@ namespace df {
     }
 
     int ViewObject::draw() {
-        std::cout << "DRAWVIEWOBJECT";
         // Construct the string to display
         std::string temp_str;
         if (m_border) {
@@ -37,8 +36,7 @@ namespace df {
         Vector pos = viewToWorld(getPosition());
 
         // Draw the string at the computed position
-        DM.drawString(df::Vector(0,0), temp_str, CENTER_JUSTIFIED, getColor());
-        // Draw a border if enabled
+        DM.drawString(pos, temp_str, CENTER_JUSTIFIED, getColor());      
         if (m_border) {
             Vector top_left = pos + Vector(-1, -1);
             Vector bottom_right = pos + Vector(temp_str.length(), 1);

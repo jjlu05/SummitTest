@@ -46,6 +46,7 @@
     <ClInclude Include="..\..\dragonfly\include\Ledge.h" />
     <ClInclude Include="..\..\dragonfly\include\LogManager.h" />
     <ClInclude Include="..\..\dragonfly\include\Manager.h" />
+    <ClInclude Include="..\..\dragonfly\include\Mole.h" />
     <ClInclude Include="..\..\dragonfly\include\Music.h" />
     <ClInclude Include="..\..\dragonfly\include\Object.h" />
     <ClInclude Include="..\..\dragonfly\include\ObjectList.h" />
@@ -91,6 +92,7 @@
     <ClCompile Include="..\..\dragonfly\include\Ledge.cpp" />
     <ClCompile Include="..\..\dragonfly\include\LogManager.cpp" />
     <ClCompile Include="..\..\dragonfly\include\Manager.cpp" />
+    <ClCompile Include="..\..\dragonfly\include\Mole.cpp" />
     <ClCompile Include="..\..\dragonfly\include\Music.cpp" />
     <ClCompile Include="..\..\dragonfly\include\Object.cpp" />
     <ClCompile Include="..\..\dragonfly\include\ObjectList.cpp" />

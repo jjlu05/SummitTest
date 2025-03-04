@@ -6,7 +6,7 @@ Bat::Bat() {
 	setType("Bat");
 	setSprite("bat");
 
-	setVelocity(df::Vector(-0.25, 0));
+	setVelocity(df::Vector(-1, 0));
 }
 
 int Bat::eventHandler(const df::Event* p_e) {

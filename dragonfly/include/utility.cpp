@@ -72,8 +72,7 @@ namespace df {
     Vector viewToWorld(Vector view_pos) {
         // Get the view's top-left corner (origin) in world coordinates.
         Vector view_origin = WM.getView().getCorner();
-        std::cout << view_origin.getX();
-        // Compute the object's position in world space.
+         // Compute the object's position in world space.
         Vector world_pos(view_pos.getX() + view_origin.getX(),
             view_pos.getY() + view_origin.getY());
 

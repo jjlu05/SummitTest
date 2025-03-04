@@ -45,7 +45,7 @@ int Wall::eventHandler(const df::Event* p_e) {
         return 1;
     }
 
-    if (p_e->getType() == df::STEP_EVENT) {
+    /*if (p_e->getType() == df::STEP_EVENT) {
         for (int i = 0; i < WM.getAllObjects().getCount(); i++) {
         
             if (WM.getAllObjects()[i]->getType() == "Hero") {
@@ -64,7 +64,7 @@ int Wall::eventHandler(const df::Event* p_e) {
         }
 
         return 1;
-    }
+    }*/
 
 
     // If get here, have ignored this event.
