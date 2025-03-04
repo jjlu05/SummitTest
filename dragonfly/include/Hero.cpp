@@ -108,6 +108,12 @@ int Hero::eventHandler(const df::Event* p_e) {
 
             this->setVelocity(df::Vector(1, -1));
         }
+        if (((p_collision_event->getObject1()->getType()) == "Wall") ||
+            ((p_collision_event->getObject2()->getType()) == "Wall"))
+        {
+
+            x = 0;
+        }
         return 1;
     }
 
@@ -136,7 +142,7 @@ void Hero::kbd(const df::EventKeyboard* p_keyboard_event) {
         if (p_keyboard_event->getKeyboardAction() == df::KEY_PRESSED) {
             std::cout << "A";
             holdingA = true;
-            x = -0.3;
+            x = -0.3*2*1.5;
         }
         if (p_keyboard_event->getKeyboardAction() == df::KEY_RELEASED) {
             std::cout << "Aup";
@@ -148,7 +154,7 @@ void Hero::kbd(const df::EventKeyboard* p_keyboard_event) {
     case df::Keyboard::D:
         if (p_keyboard_event->getKeyboardAction() == df::KEY_PRESSED) {
             holdingD = true;
-            x = 0.3;
+            x = 0.3*2*1.5;
         }
         if (p_keyboard_event->getKeyboardAction() == df::KEY_RELEASED) {
             holdingD = false;
@@ -158,7 +164,7 @@ void Hero::kbd(const df::EventKeyboard* p_keyboard_event) {
 
     case df::Keyboard::SPACE:
         if (grounded && p_keyboard_event->getKeyboardAction() == df::KEY_PRESSED) {
-            y = -0.6;
+            y = -0.6*2;
         }
         break;
 
@@ -238,7 +244,7 @@ void Hero::step() {
     fire_countdown--;
     if (fire_countdown < 0)
         fire_countdown = 0;
-    df::Vector v = df::Vector(this->getPosition().getX(), this->getPosition().getY() + 0.2);
+    df::Vector v = df::Vector(this->getPosition().getX(), this->getPosition().getY() + 1.5);
     df::ObjectList objL = WM.getCollisions(this,v);
     for (int i = 0; i < objL.getCount(); i++) {
         std::cout << objL[i]<<std::endl;
@@ -257,7 +263,7 @@ void Hero::step() {
     }
     else {
         y = 0;
-        this->setVelocity(df::Vector(x, this->getVelocity().getY() + 0.02));//gravity
+        this->setVelocity(df::Vector(x, this->getVelocity().getY() + 0.02*2));//gravity
 
     }
     // A d j u s t v i ew .

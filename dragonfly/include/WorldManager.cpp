@@ -15,8 +15,9 @@ namespace df {
         setType("WorldManager");
         m_updates = ObjectList();
         m_deletions = ObjectList();
-         boundary = Box(Vector(0, 0), 1024*2, 768*2);
-        view = Box(Vector(1024, 768), 2048, 768*2); // Centered, full screen view.
+         boundary = Box(Vector(0, 0), 0, 0);
+        view = Box(Vector(0, 0), DM.getHorizontal(), DM.getVertical()); // Centered, full screen view.
+        //set the view and bound to DM.get
 
 
     }

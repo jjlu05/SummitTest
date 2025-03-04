@@ -18,10 +18,9 @@ void populateWorld(void);
 
 int main(int argc, char* argv[]) {
     df::Vector corner(0, 0);
-    df::Box world_boundary(corner, 40, 40);
+    df::Box world_boundary(corner, 160, 160);
     WM.setBoundary(world_boundary);
-    df::Box view(corner, 100, 100);
-        WM.setView(view);
+ 
 
 
     // Start up game manager.

@@ -9,7 +9,7 @@
 #include "LogManager.h"
 #include "ResourceManager.h"
 #include "WorldManager.h"
-
+#include "DisplayManager.h"
 // Game includes.
 #include "GameStart.h"
 #include "Hero.h"
@@ -21,7 +21,7 @@
 #include "Ledge.h"
 #include "Bat.h"
 #include "Wall.h"
-
+int position = 4;
 bool started1 = false;
 GameStart::GameStart() {
     std::cout << "GameStarted";
@@ -80,21 +80,27 @@ bool GameStart::started() {
 
 }
 void GameStart::start() {
-
+    //120
+    // 48
   // Create hero.
   Hero* hero = new Hero();
-  hero->setPosition(df::Vector(39, 15));
+  int center_x = DM.getHorizontal() / 2;
+  int center_y = DM.getVertical() / 2;
+  hero->setPosition(df::Vector(120, 48));
+
 
   //// Spawn some saucers to shoot.
   //for (int i=0; i<16; i++)
   //  new Saucer;
-  Wall* wall = new Wall();
-  wall->setPosition(df::Vector(0, 10));
+  Wall* wall = new Wall(1);
+  wall->setPosition(df::Vector(0, 0));
+  Wall* wall2 = new Wall(2);
+  wall2->setPosition(df::Vector(238, 48));
 
   Bat* bat = new Bat();
-  bat->setPosition(df::Vector(10, 10));
+  bat->setPosition(df::Vector(80, 50));
   Ground* ground = new Ground();
-  ground->setPosition(df::Vector(39,20));
+  ground->setPosition(df::Vector(120,60));
   // Setup heads-up display.
   Points *tPoints = new Points;		                     // Points display.
   df::ViewObject *p_vo = new df::ViewObject; // Count of nukes.
@@ -110,7 +116,7 @@ void GameStart::start() {
 
 
   Ledge* ledge= new Ledge();
-  ledge->setPosition(df::Vector(18, 14));
+  ledge->setPosition(df::Vector(18*position, 14*position));
 
 
 

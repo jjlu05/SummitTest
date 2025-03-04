@@ -14,8 +14,8 @@ enum Justification {
 // Defaults for SFML window.
 const int WINDOW_HORIZONTAL_PIXELS_DEFAULT = 1024;
 const int WINDOW_VERTICAL_PIXELS_DEFAULT = 768;
-const int WINDOW_HORIZONTAL_CHARS_DEFAULT = 80;
-const int WINDOW_VERTICAL_CHARS_DEFAULT = 24;
+const int WINDOW_HORIZONTAL_CHARS_DEFAULT = 80*2*1.5;
+const int WINDOW_VERTICAL_CHARS_DEFAULT = 24*2*1.5;//change the 80 24 values
 const int WINDOW_STYLE_DEFAULT = sf::Style::Titlebar;
 const sf::Color WINDOW_BACKGROUND_COLOR_DEFAULT = sf::Color::Black;
 const std::string WINDOW_TITLE_DEFAULT = "Dragonfly";

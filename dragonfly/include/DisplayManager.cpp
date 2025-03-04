@@ -61,8 +61,8 @@ int DisplayManager::startUp() {
     if (m_p_window != NULL) {
         return 0;
     }
-    m_p_window = new sf::RenderWindow(sf::VideoMode({ 1024,768}), "SFML - Hello, World!");
-
+    m_p_window = new sf::RenderWindow(sf::VideoMode({ 1024*2,768*2}), "SFML - Hello, World!");
+    //fullscreen
     if (!m_p_window) {
         std::cout << "Error! Unable to allocate renderwindow" << std::endl;
         return -1;
@@ -183,12 +183,12 @@ int DisplayManager::getVertical() const {
 
 // Return window’s horizontal maximum (in pixels).
 int DisplayManager::getHorizontalPixels() const {
-    return 1024;
+    return 2048;
 }
 
 // Return window’s vertical maximum (in pixels).
 int DisplayManager::getVerticalPixels() const {
-    return 768;
+    return 768*2;
 }
 
 // Render current window buffer.

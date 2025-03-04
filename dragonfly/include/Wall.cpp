@@ -18,9 +18,8 @@
 #include "Explosion.h"
 #include "Points.h"
 #include "Wall.h"
-
-Wall::Wall(){
-
+Wall::Wall(int num){
+    id = num;
     // Setup "saucer" sprite.
     setSprite("wall");
 
@@ -36,6 +35,8 @@ setType("Wall");
 
 // Handle event.
 // Return 0 if ignored, else 1.
+int test = 0;
+bool found = false;
 int Wall::eventHandler(const df::Event* p_e) {
 
     if (p_e->getType() == df::COLLISION_EVENT) {
@@ -44,7 +45,26 @@ int Wall::eventHandler(const df::Event* p_e) {
         return 1;
     }
 
+    if (p_e->getType() == df::STEP_EVENT) {
+        for (int i = 0; i < WM.getAllObjects().getCount(); i++) {
+        
+            if (WM.getAllObjects()[i]->getType() == "Hero") {
+                test = i;
+                found = true;
+            }
+        }
+        if (found) {
+            if (id==1) {
+                setPosition(df::Vector(0, WM.getAllObjects()[test]->getPosition().getY()));
+            }
+            if (id==2) {
+                setPosition(df::Vector(238, WM.getAllObjects()[test]->getPosition().getY()));
 
+            }
+        }
+
+        return 1;
+    }
 
 
     // If get here, have ignored this event.
