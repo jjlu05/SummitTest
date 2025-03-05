@@ -21,16 +21,19 @@
 #include "EventOut.h"
 
 // Global variables (ideally these should be members, but kept here for simplicity).
+bool jumping = false;
 bool grounded = false;
 bool gAbove = false;
 float x = 0;   // Actual horizontal velocity applied.
 float y = 0;   // Vertical velocity.
+float jumpIncrementor = 0;
 int xCountdown = 0;
-
+bool ij = false;
+float animationSwitch = 0;
 Hero::Hero() {
     // Link to "ship" sprite.
     setSprite("hero");
-
+    std::cout<<this->getAnimation().getSlowdownCount();
     // Register interest for events.
 #ifdef DF_REGISTER_INTEREST
     registerInterest(df::KEYBOARD_EVENT);
@@ -156,7 +159,6 @@ void Hero::kbd(const df::EventKeyboard* p_keyboard_event) {
     switch (p_keyboard_event->getKey()) {
     case df::Keyboard::A:
         if (p_keyboard_event->getKeyboardAction() == df::KEY_PRESSED) {
-            std::cout << "A";
             holdingA = true;
             if (xCountdown == 0) {
                 desiredX = -0.3 * 2 * 1.5;
@@ -164,7 +166,6 @@ void Hero::kbd(const df::EventKeyboard* p_keyboard_event) {
             }
         }
         if (p_keyboard_event->getKeyboardAction() == df::KEY_RELEASED) {
-            std::cout << "Aup";
             holdingA = false;
             if (xCountdown == 0) {
                 if (!holdingD) {
@@ -183,6 +184,8 @@ void Hero::kbd(const df::EventKeyboard* p_keyboard_event) {
             }
         }
         if (p_keyboard_event->getKeyboardAction() == df::KEY_RELEASED) {
+          
+
             holdingD = false;
             if (xCountdown == 0) {
                 if (!holdingA) {
@@ -190,11 +193,22 @@ void Hero::kbd(const df::EventKeyboard* p_keyboard_event) {
                     x = 0;
                 }
             }
+           
         }
         break;
     case df::Keyboard::SPACE:
         if (grounded && p_keyboard_event->getKeyboardAction() == df::KEY_PRESSED) {
-            y = -0.6 * 2;
+            ij = true;
+            animationSwitch = 30;
+            /*y = -0.6 * 2;*/
+            //set animation to 30, set frame to 1
+            //every step event, decrease animation
+        }   jumping = true;
+        if (grounded && p_keyboard_event->getKeyboardAction() == df::KEY_RELEASED) {
+            jumping = false;
+            ij = false;
+            y = -0.6 * 2-jumpIncrementor/100;
+            jumpIncrementor = 0;
         }
         break;
     case df::Keyboard::Q:  // Quit
@@ -247,6 +261,26 @@ void Hero::fire(df::Vector target) {
 
 // Step method.
 void Hero::step() {
+    if (this->getVelocity().getY() >0) {
+        setSprite("hero-fall");
+    }
+    else if (jumping) {
+        if (animationSwitch > 15) {
+            std::cout << "Number1";
+            setSprite("hero-crouch");
+        }
+        else if (animationSwitch > 0) {
+            setSprite("hero-squat");
+        }
+    }
+   
+    else {
+        setSprite("hero");
+    }
+    animationSwitch--;
+    if (ij) {
+        jumpIncrementor++;
+    }
     // Decrease countdowns.
     if (xCountdown > 0) {
         xCountdown--;
@@ -259,10 +293,10 @@ void Hero::step() {
         fire_countdown = 0;
 
     // Check collisions below.
-    df::Vector v(getPosition().getX(), getPosition().getY() + 1);
+    df::Vector v(getPosition().getX(), getPosition().getY() + 1.33);
     df::ObjectList objL = WM.getCollisions(this, v);
     // Check collisions above.
-    df::Vector vAbove(getPosition().getX(), getPosition().getY() - 1);
+    df::Vector vAbove(getPosition().getX(), getPosition().getY() - 1.33);
     df::ObjectList objAbove = WM.getCollisions(this, vAbove);
 
     // Update grounded state.
@@ -292,7 +326,6 @@ void Hero::step() {
 
     // Apply velocity based on collision state.
     if (grounded) {
-        std::cout << "Grounded";
         this->setVelocity(df::Vector(x, y));
     }
     else if (gAbove) {
@@ -306,8 +339,8 @@ void Hero::step() {
     }
     else {
         y = 0;
-        const float MAX_FALL_SPEED = 1.0f;
-        float newYVelocity = this->getVelocity().getY() + (0.02 * 2);
+        const float MAX_FALL_SPEED = 2.0f;
+        float newYVelocity = this->getVelocity().getY() + (0.02 * 3);
         if (newYVelocity > MAX_FALL_SPEED) {
             newYVelocity = MAX_FALL_SPEED;
         }

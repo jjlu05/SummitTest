@@ -50,6 +50,9 @@ int main(int argc, char* argv[]) {
 void loadResources(void) {
     RM.loadSprite("skeleton.txt", "skeleton");
     RM.loadSprite("mole.txt", "mole");
+    RM.loadSprite("arrow.txt", "arrow");
+    RM.loadSprite("hero-crouch.txt", "hero-crouch");
+    RM.loadSprite("hero-squat.txt", "hero-squat");
 
     RM.loadSprite("ledge.txt", "ledge");
     RM.loadSprite("wall.txt", "wall");

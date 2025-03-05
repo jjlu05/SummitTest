@@ -26,6 +26,7 @@
 #include "ViewObject.h"
 #include "WorldManager.h"
 #include "utility.h"
+#include <string>
 #include "EventView.h"
 int position = 4;
 bool started1 = false;
@@ -91,6 +92,8 @@ void GameStart::start() {
     df::ViewObject* vObj = new df::ViewObject();
     vObj->setDrawValue(5);
     vObj->setPosition(df::Vector(5,5));
+    vObj->setViewString(" ++++++++++=+++++++++++++++++++++++++++ \n* +# * +**### + ### * #++ * *#### * # * *++ * ****## +\n####### * ## * *************************");
+
   
     //120
     // 48
@@ -99,7 +102,7 @@ void GameStart::start() {
   Hero* hero = new Hero();
   int center_x = DM.getHorizontal() / 2;
   int center_y = DM.getVertical() / 2;
-  hero->setPosition(df::Vector(120, 48));
+  hero->setPosition(df::Vector(120, 40));
 
   Skeleton* skel = new Skeleton(hero);
   skel->setPosition(df::Vector(80, 30));

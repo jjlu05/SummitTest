@@ -1,3 +1,8 @@
+
+
+
+
+
 #include "Skeleton.h"
 #include "EventStep.h"
 #include "Hero.h"
@@ -5,8 +10,9 @@
 #include "Arrow.h"
 
 #include "WorldManager.h"
-bool isWithin(df::Box box, df::Vector pos);
-Skeleton::Skeleton(Hero *a_hero) {
+#include <cmath>
+
+Skeleton::Skeleton(Hero* a_hero) {
 	df::Vector corner = getBox().getCorner();
 	corner.scale(5);
 	attack_range.setCorner(corner);
@@ -18,7 +24,7 @@ Skeleton::Skeleton(Hero *a_hero) {
 
 	p_hero = a_hero;
 
-	attack_slowdown = 5;
+	attack_slowdown = 50;
 	attack_cooldown = attack_slowdown;
 
 }
@@ -44,7 +50,7 @@ void Skeleton::step() {
 	attack_range.setCorner(corner);
 	attack_cooldown--;
 
-	if (isWithin(attack_range, p_hero->getPosition())) {
+	if (std::abs((getPosition().getMagnitude() - p_hero->getPosition().getMagnitude())) <= 30) {
 		if (attack_cooldown <= 0) {
 			attack();
 			attack_cooldown = attack_slowdown;
@@ -63,25 +69,10 @@ void Skeleton::hit(const df::EventCollision* p_collision_event) {
 }
 
 void Skeleton::attack() {
-	df::Vector v = df::Vector(p_hero->getPosition().getX()-getPosition().getX(), p_hero->getPosition().getY()-getPosition().getY());
+	df::Vector v = df::Vector(p_hero->getPosition().getX() - getPosition().getX(), p_hero->getPosition().getY() - getPosition().getY());
 	v.normalize();
-	v.scale(1);
+	v.scale(0.75);
 
 	Arrow* arrow = new Arrow(getPosition());
 	arrow->setVelocity(v);
-}
-
-bool isWithin(df::Box box, df::Vector pos) {
-	float left_x = box.getCorner().getX();
-	float right_x = left_x + box.getHorizontal();
-
-	float top_y = box.getCorner().getY();
-	float bottom_y = top_y - box.getVertical();
-
-	if (((pos.getX() > left_x) && (pos.getX() < right_x))
-		&& ((pos.getY() > bottom_y) && (pos.getY() < top_y))) {
-		return true;
-	}
-
-	return false;
 }

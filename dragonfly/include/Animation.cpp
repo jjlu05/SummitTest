@@ -1,4 +1,5 @@
 #include "Animation.h"
+#include <iostream>
 namespace df {
     // Constructor
     Animation::Animation() {
@@ -56,6 +57,7 @@ namespace df {
     // Drawing accounts for slowdown and advances the sprite frame.
     // Return 0 if successful, else -1.
     int Animation::draw(Vector position) {
+    
         // If sprite is not defined, return -1.
         if (m_p_sprite == nullptr) {
             return -1;
@@ -81,7 +83,7 @@ namespace df {
             count = 0;  // Reset slowdown counter.
             index++;    // Advance frame.
 
-            // If at the last frame, loop back to the beginning.
+            //If at the last frame, loop back to the beginning.
             if (index >= m_p_sprite->getFrameCount()) {
                 index = 0;
             }

@@ -18,7 +18,7 @@ namespace df {
         setBorder(true);
         setLocation(TOP_CENTER);
         setColor(COLOR_DEFAULT);
-        std::cout << "TSCALLED";
+        
         // Register interest in view events
     }
 

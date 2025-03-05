@@ -63,7 +63,6 @@ namespace df {
                 myfile.close();
                 return -1;
             }
-            std::cout << line<<"frames";
 
             // Read width
             if (!getline(myfile, line) || (width = atoi(line.c_str())) <= 0) {
@@ -71,7 +70,6 @@ namespace df {
                 myfile.close();
                 return -1;
             }
-            std::cout << line << "width";
 
             // Read height
             if (!getline(myfile, line) || (height = atoi(line.c_str())) <= 0) {
@@ -79,7 +77,6 @@ namespace df {
                 myfile.close();
                 return -1;
             }
-            std::cout << line << "height";
 
 
             // Read slowdown
@@ -88,7 +85,6 @@ namespace df {
                 myfile.close();
                 return -1;
             }
-            std::cout << line << "slowdown";
 
 
             // Read color
@@ -127,11 +123,9 @@ namespace df {
                 myfile.close();
                 return -1;
             }
-            std::cout << line << "color";
 
         }
 
-        std::cout << "REACHED";
         Sprite* sprite = new Sprite(frames);
         sprite->setHeight(height);
         sprite->setWidth(width);
@@ -143,9 +137,7 @@ namespace df {
             std::string test = "";
             for (int h = 0; h < height; h++) {
                 getline(myfile, line);
-                std::cout << line << ":current line" << endl;
                 if (line.length() != width) {
-                    std::cout << "Width of body of file incorrect";
                     return -1;
                 }
                 test += line;
@@ -155,18 +147,14 @@ namespace df {
             }
             if (f == frames - 1) {
                 if (getline(myfile, line)) {
-                    std::cout << "Didnt reach end of file";
                     return -1;
                 }
             }
             Frame* frame= new Frame(width,height,test);
-            std::cout << frame->getString() <<":frame string"<< endl;
             sprite->addFrame(*frame);
 
         }
-        std::cout << countLines << ":clines" << endl;
         if (countLines< frames * height) {
-            std::cout << "TOO FEW LINES";
             return -1;
         }
         myfile.close();
@@ -206,13 +194,11 @@ namespace df {
     // Find Sprite with indicated label.  
 // Return pointer to it if found, else NULL.  
     Sprite* ResourceManager::getSprite(std::string label) const {
-        std::cout << "FUNCTION LABEL:" << label << endl;
-        std::cout << "label label:" << m_p_sprite[0]->getLabel() << endl;
-        std::cout << "REACHED GETLABEL";
+
 
         for (int i = 0; i < m_sprite_count; i++) {  
             if (label == m_p_sprite[i]->getLabel()) {
-                std::cout << "REACHED GETLABEL2";
+                
                 return m_p_sprite[i];
             }
         }

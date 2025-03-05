@@ -49,11 +49,11 @@ namespace df {
 	}
 	int Sprite::addFrame(Frame new_frame) {
 		if (m_frame_count == m_max_frame_count) {
-			std::cout << "failed";
+			
 			return -1;
 		}
 		else {
-			std::cout << "addedFrame ";
+			
 			m_frame[m_frame_count] = new_frame;
 			m_frame_count++;
 		}
@@ -85,7 +85,7 @@ namespace df {
 	}
 	int Sprite::draw(int frame_number, Vector position) const {
 		if ((frame_number < 0) || (frame_number > m_frame_count - 1)) {
-			std::cout << "BOOM";
+			
 			return -1;
 		}
 		Frame currentFrame = m_frame[frame_number];
