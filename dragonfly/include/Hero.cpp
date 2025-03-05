@@ -19,20 +19,17 @@
 #include "Hero.h"
 #include "iostream"
 #include "EventOut.h"
+#include "Bar.h"
+#include "EventView.h"
+int allowJumpCount = 0;
+bool allowJump = true;
+float allowScoreDec = 100;
 
-// Global variables (ideally these should be members, but kept here for simplicity).
-bool jumping = false;
-bool grounded = false;
-bool gAbove = false;
-float x = 0;   // Actual horizontal velocity applied.
-float y = 0;   // Vertical velocity.
-float jumpIncrementor = 0;
-int xCountdown = 0;
-bool ij = false;
-float animationSwitch = 0;
+
 Hero::Hero() {
     // Link to "ship" sprite.
     setSprite("hero");
+    
     std::cout<<this->getAnimation().getSlowdownCount();
     // Register interest for events.
 #ifdef DF_REGISTER_INTEREST
@@ -66,6 +63,16 @@ Hero::Hero() {
 }
 
 Hero::~Hero() {
+   /* df::ObjectList allObjs = WM.getAllObjects();
+    Object* temp = nullptr;
+    for (int i = 0; i < allObjs.getCount(); i++) {
+        if (allObjs[i]->getType() == "Bar") {
+            temp = allObjs[i];
+            temp->setPosition(df::Vector(this->getPosition().getX(), this->getPosition().getY() + 2));
+        }
+
+    }
+    WM.markForDelete(temp);*/
     // Create GameOver object.
     new GameOver;
 
@@ -87,11 +94,23 @@ Hero::~Hero() {
 // Handle event.
 // Return 0 if ignored, else 1.
 int Hero::eventHandler(const df::Event* p_e) {
+    df::EventView ev1("         LIVES: ", -1, true);
+
 
     if (p_e->getType() == df::OUT_EVENT) {
-        setPosition(df::Vector(120, 48));
-        this->setVelocity(df::Vector(0, 0));
-        return 1;
+        lives--;
+        if (lives != 0) {
+            setPosition(df::Vector(70, 60));
+            this->setVelocity(df::Vector(0, 0));
+            WM.onEvent(&ev1);
+            return 1;
+        }
+        else {
+            WM.onEvent(&ev1);
+
+            WM.markForDelete(this);
+        }
+       
     }
     if (p_e->getType() == df::KEYBOARD_EVENT) {
         const df::EventKeyboard* p_keyboard_event = dynamic_cast<const df::EventKeyboard*>(p_e);
@@ -129,30 +148,27 @@ int Hero::eventHandler(const df::Event* p_e) {
             ((p_collision_event->getObject2()->getType()) == "Ground"))
         {
             std::cout << "touching";
-            // Check for side collisions by looking slightly left and right.
             df::Vector vSide = df::Vector(this->getPosition().getX() - 1, this->getPosition().getY());
             df::ObjectList objS = WM.getCollisions(this, vSide);
             df::Vector vSide2 = df::Vector(this->getPosition().getX() + 1, this->getPosition().getY());
             df::ObjectList objS2 = WM.getCollisions(this, vSide2);
             if ((!objS.isEmpty()) || (!objS2.isEmpty())) {
                 std::cout << "Side collision";
-                x = 0;  // Cancel actual horizontal velocity.
-                // Note: We do NOT change desiredX here so that it remembers what the player wanted.
-            }
+                x = 0;  
+             }
         }
         return 1;
     }
     return 0;
 }
-
+int Hero::returnLives() {
+    return lives;
+}
 // Mouse event handler.
 void Hero::mouse(const df::EventMouse* p_mouse_event) {
     // Currently unused.
 }
 
-// Track key states.
-bool holdingA = false;
-bool holdingD = false;
 
 // Keyboard event handler.
 void Hero::kbd(const df::EventKeyboard* p_keyboard_event) {
@@ -184,8 +200,6 @@ void Hero::kbd(const df::EventKeyboard* p_keyboard_event) {
             }
         }
         if (p_keyboard_event->getKeyboardAction() == df::KEY_RELEASED) {
-          
-
             holdingD = false;
             if (xCountdown == 0) {
                 if (!holdingA) {
@@ -193,22 +207,31 @@ void Hero::kbd(const df::EventKeyboard* p_keyboard_event) {
                     x = 0;
                 }
             }
-           
         }
         break;
     case df::Keyboard::SPACE:
-        if (grounded && p_keyboard_event->getKeyboardAction() == df::KEY_PRESSED) {
-            ij = true;
-            animationSwitch = 30;
-            /*y = -0.6 * 2;*/
-            //set animation to 30, set frame to 1
-            //every step event, decrease animation
-        }   jumping = true;
-        if (grounded && p_keyboard_event->getKeyboardAction() == df::KEY_RELEASED) {
-            jumping = false;
-            ij = false;
-            y = -0.6 * 2-jumpIncrementor/100;
-            jumpIncrementor = 0;
+        if (p_keyboard_event->getKeyboardAction() == df::KEY_PRESSED) {
+            if (allowJump) {
+                // Only start a jump if the hero is grounded.
+                if (grounded) {
+                    ij = true;
+                    animationSwitch = 30;
+                    jumping = true;
+                    allowJump = false;
+                    allowJumpCount = 40;
+                }
+            }
+           
+        }
+        else if (p_keyboard_event->getKeyboardAction() == df::KEY_RELEASED) {
+            // Only complete the jump if it was initiated (jumping is true).
+            if (jumping && grounded) {
+                jumping = false;
+                ij = false;
+                y = -0.6 * 2 - jumpIncrementor / 100;
+                jumpIncrementor = 0;
+            }
+            // If the space was pressed in air, do nothing on release.
         }
         break;
     case df::Keyboard::Q:  // Quit
@@ -219,6 +242,7 @@ void Hero::kbd(const df::EventKeyboard* p_keyboard_event) {
         break;
     }
 }
+
 
 // Move method.
 void Hero::move(int dy) {
@@ -261,6 +285,18 @@ void Hero::fire(df::Vector target) {
 
 // Step method.
 void Hero::step() {
+    allowScoreDec--;
+    if (allowScoreDec == 0) {
+        df::EventView ev2("         Score: ", -1, true);
+        WM.onEvent(&ev2);
+        allowScoreDec=100;
+    }
+
+    allowJumpCount--;
+    if (allowJumpCount == 0) {
+        allowJump = true;
+        allowJumpCount = 40;
+    }
     if (this->getVelocity().getY() >0) {
         setSprite("hero-fall");
     }
@@ -279,7 +315,11 @@ void Hero::step() {
     }
     animationSwitch--;
     if (ij) {
+        float MAX_JUMP = 100.0;
         jumpIncrementor++;
+        if (jumpIncrementor > MAX_JUMP) {
+            jumpIncrementor = MAX_JUMP;
+        }
     }
     // Decrease countdowns.
     if (xCountdown > 0) {
@@ -293,7 +333,7 @@ void Hero::step() {
         fire_countdown = 0;
 
     // Check collisions below.
-    df::Vector v(getPosition().getX(), getPosition().getY() + 1.33);
+    df::Vector v(getPosition().getX(), getPosition().getY() + getVelocity().getY()+1);
     df::ObjectList objL = WM.getCollisions(this, v);
     // Check collisions above.
     df::Vector vAbove(getPosition().getX(), getPosition().getY() - 1.33);
@@ -326,6 +366,8 @@ void Hero::step() {
 
     // Apply velocity based on collision state.
     if (grounded) {
+        setVelocity(df::Vector(x, 0));
+
         this->setVelocity(df::Vector(x, y));
     }
     else if (gAbove) {
@@ -346,6 +388,15 @@ void Hero::step() {
         }
         this->setVelocity(df::Vector(x, newYVelocity));
     }
+    df::ObjectList allObjs = WM.getAllObjects();
+    for (int i = 0; i < allObjs.getCount(); i++) {
+        if (allObjs[i]->getType()=="Bar") {
+            Object* temp = allObjs[i];
+            temp->setPosition(df::Vector(this->getPosition().getX(), this->getPosition().getY() + 2));
+        }
+    
+    }
+
 }
 
 // Send "nuke" event to all objects.

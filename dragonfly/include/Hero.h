@@ -11,8 +11,25 @@
 class Hero : public df::Object {
 
  private:
-	 float desiredX;
+	 int allowJumpCount = 0;
+	 bool allowJump = true;
+	 int lives = 3;
+	 // Track key states.
+	 bool holdingA = false;
+	 bool holdingD = false;
 
+	 float desiredX;
+	 // Global variables (ideally these should be members, but kept here for simplicity).
+	 bool jumping = false;
+	 bool grounded = false;
+	 bool gAbove = false;
+	 float x = 0;   // Actual horizontal velocity applied.
+	 float y = 0;   // Vertical velocity.
+	 float jumpIncrementor = 0;
+	 int xCountdown = 0;
+	 bool ij = false;
+	 float animationSwitch = 0;
+	 bool inAir = false;
   Reticle *p_reticle;
   int fire_slowdown;
   int fire_countdown;
@@ -30,5 +47,6 @@ class Hero : public df::Object {
   Hero();
   ~Hero();
   int eventHandler(const df::Event *p_e);
+  int returnLives();
 };
 #endif

@@ -8,15 +8,19 @@
 #include "Vector.h"
 #include <iostream>
 #include "utility.h"
+float a = 1;
 
+void DisplayManager::setA(float b) {
+    a = b;
+}
 float charHeight() {
-    return DM.getVerticalPixels() / static_cast<float>(DM.getVertical());
+    return a*DM.getVerticalPixels() / static_cast<float>(DM.getVertical());
 }
 
 
 // Compute character width in pixels, based on window size.
 float charWidth() {
-    return DM.getHorizontalPixels() / static_cast<float>(DM.getHorizontal());
+    return a*DM.getHorizontalPixels() / static_cast<float>(DM.getHorizontal());
 };
 
 // Convert ASCII spaces (x, y) to window pixels (x, y).
@@ -61,7 +65,7 @@ int DisplayManager::startUp() {
     if (m_p_window != NULL) {
         return 0;
     }
-    m_p_window = new sf::RenderWindow(sf::VideoMode({ 1024*2,768*2}), "SFML - Hello, World!");
+    m_p_window = new sf::RenderWindow(sf::VideoMode({ 700,768*2}), "SFML - Hello, World!");
     //fullscreen
     if (!m_p_window) {
         std::cout << "Error! Unable to allocate renderwindow" << std::endl;

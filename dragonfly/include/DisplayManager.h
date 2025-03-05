@@ -14,8 +14,8 @@ enum Justification {
 // Defaults for SFML window.
 const int WINDOW_HORIZONTAL_PIXELS_DEFAULT = 1024;
 const int WINDOW_VERTICAL_PIXELS_DEFAULT = 768;
-const int WINDOW_HORIZONTAL_CHARS_DEFAULT = 80*2*1.5;
-const int WINDOW_VERTICAL_CHARS_DEFAULT = 24*2*1.5;//change the 80 24 values
+const int WINDOW_HORIZONTAL_CHARS_DEFAULT = 80*2*2;
+const int WINDOW_VERTICAL_CHARS_DEFAULT = 24*2*2;//change the 80 24 values
 const int WINDOW_STYLE_DEFAULT = sf::Style::Titlebar;
 const sf::Color WINDOW_BACKGROUND_COLOR_DEFAULT = sf::Color::Black;
 const std::string WINDOW_TITLE_DEFAULT = "Dragonfly";
@@ -47,6 +47,8 @@ private:
     int m_window_vertical_chars; // Vertical ASCII spaces in window.
 
 public:
+    void setA(float b);
+
     // Get the one and only instance of the DisplayManager.
     static DisplayManager& getInstance();
 

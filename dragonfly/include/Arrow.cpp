@@ -4,7 +4,7 @@
 #include "WorldManager.h"
 #include "EventOut.h"
 #include "EventStep.h"
-
+#include "Hero.h"
 Arrow::Arrow(df::Vector skel_pos) {
 	setType("Arrow");
 	setSprite("arrow");
@@ -41,12 +41,28 @@ int Arrow::eventHandler(const df::Event* p_e) {
 }
 
 void Arrow::hit(const df::EventCollision* p_collision_event) {
-	if (((p_collision_event->getObject1()->getType()) == "Hero") ||
+	df::EventOut ev1;
+	// Check if the first object is a Hero
+	
+	/*if (((p_collision_event->getObject1()->getType()) == "Hero") ||
 		((p_collision_event->getObject2()->getType()) == "Hero")) {
 		WM.markForDelete(p_collision_event->getObject1());
 		WM.markForDelete(p_collision_event->getObject2());
-	}
+	}*/
+	if (p_collision_event->getObject1()->getType() == "Hero") {
+		Hero* hero = dynamic_cast<Hero*>(p_collision_event->getObject1());
 
+		if (hero->returnLives()>0) {
+			WM.onEvent(&ev1);
+		}
+	}
+	else if (p_collision_event->getObject2()->getType() == "Hero") {
+		Hero* hero = dynamic_cast<Hero*>(p_collision_event->getObject2());
+
+		if (hero->returnLives() > 0) {
+			WM.onEvent(&ev1);
+		}
+	}
 	if (((p_collision_event->getObject1()->getType()) == "Wall") ||
 		((p_collision_event->getObject2()->getType()) == "Wall")) {
 		WM.markForDelete(this);

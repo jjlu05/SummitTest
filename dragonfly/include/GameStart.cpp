@@ -28,6 +28,8 @@
 #include "utility.h"
 #include <string>
 #include "EventView.h"
+#include "Bar.h"
+#include "Checkpoint.h"
 int position = 4;
 bool started1 = false;
 GameStart::GameStart() {
@@ -88,38 +90,59 @@ bool GameStart::started() {
 }
 void GameStart::start() {
 
+    DM.setA(2);
 
     df::ViewObject* vObj = new df::ViewObject();
-    vObj->setDrawValue(5);
-    vObj->setPosition(df::Vector(5,5));
-    vObj->setViewString(" ++++++++++=+++++++++++++++++++++++++++ \n* +# * +**### + ### * #++ * *#### * # * *++ * ****## +\n####### * ## * *************************");
+    vObj->setViewString("         LIVES: ");
+    vObj->setValue(3);
+    vObj->setPosition(df::Vector(9,1));
+    DM.setA(1);
+
+
+    DM.setA(2);
+
+    df::ViewObject* score = new df::ViewObject();
+    score->setViewString("         SCORE: ");
+    score->setValue(100);
+    score->setPosition(df::Vector(37, 1));
+    DM.setA(1);
+
 
   
     //120
     // 48
   // Create hero.
+
+    
+
+    Checkpoint* chkpt = new Checkpoint();
+    chkpt->setSprite("checkpoint");
+    chkpt->setPosition(df::Vector(10, 0));
+
+
+
     Object* deaths = new Object();
+  Bar* bar = new Bar();
+  bar->setSolidness(df::SPECTRAL);
+  bar->setPosition(df::Vector(70, 56));
   Hero* hero = new Hero();
   int center_x = DM.getHorizontal() / 2;
   int center_y = DM.getVertical() / 2;
-  hero->setPosition(df::Vector(120, 40));
-
+  hero->setPosition(df::Vector(70, 60));
   Skeleton* skel = new Skeleton(hero);
   skel->setPosition(df::Vector(80, 30));
   Skeleton* skel2 = new Skeleton(hero);
   skel2->setPosition(df::Vector(150, 57));
-  //// Spawn some saucers to shoot.
-  //for (int i=0; i<16; i++)
-  //  new Saucer;
-  //Wall* wall = new Wall(1);
-  //wall->setPosition(df::Vector(0, 0));
-  //Wall* wall2 = new Wall(2);
-  //wall2->setPosition(df::Vector(238, 48));
+ 
+  Wall* wall = new Wall(1);
+  wall->setPosition(df::Vector(0, 40));
+  Wall* wall2 = new Wall(2);
+  wall2->setPosition(df::Vector(108, 44));
 
   Bat* bat = new Bat();
   bat->setPosition(df::Vector(80, 50));
   Ground* ground = new Ground();
-  ground->setPosition(df::Vector(120,60));
+  ground->setPosition(df::Vector(70,80));
   // Setup heads-up display.
   //Points *tPoints = new Points;		                     // Points display.
   //df::ViewObject *p_vo = new df::ViewObject; // Count of nukes.
@@ -138,10 +161,10 @@ void GameStart::start() {
   Ledge* ledge= new Ledge();
   ledge->setPosition(df::Vector(18*position, 14*position));
   Ledge* ledge1 = new Ledge();
-  ledge1->setPosition(df::Vector(80, 35));
+  ledge1->setPosition(df::Vector(30, 40));
   
-  Mole* mole = new Mole();
-  mole->setPosition(df::Vector(60, 40));
+  //Mole* mole = new Mole();
+  //mole->setPosition(df::Vector(60, 40));
 
 
 }

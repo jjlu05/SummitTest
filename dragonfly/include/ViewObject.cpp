@@ -23,6 +23,7 @@ namespace df {
     }
 
     int ViewObject::draw() {
+        DM.setA(1.4);
         // Construct the string to display
         std::string temp_str;
         if (m_border) {
@@ -53,8 +54,9 @@ namespace df {
             DM.drawCh(Vector(bottom_right.getX(), top_left.getY()), '+', m_color);  // Top-right corner
             DM.drawCh(Vector(top_left.getX(), bottom_right.getY()), '+', m_color);  // Bottom-left corner
             DM.drawCh(bottom_right, '+', m_color);  // Bottom-right corner
+            
         }
-
+        DM.setA(1);
         return 0;
     }
 

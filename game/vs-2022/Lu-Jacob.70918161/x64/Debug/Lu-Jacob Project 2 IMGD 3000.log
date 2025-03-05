@@ -1,47 +1,4 @@
-﻿  DisplayManager.cpp
-C:\Users\jacob\SummitRush\SFML-3.0\include\SFML\System\Exception.hpp(41,47): warning C4275: non dll-interface class 'std::runtime_error' used as base for dll-interface class 'sf::Exception'
-  (compiling source file '../../dragonfly/include/DisplayManager.cpp')
-      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\stdexcept(100,19):
-      see declaration of 'std::runtime_error'
-      C:\Users\jacob\SummitRush\SFML-3.0\include\SFML\System\Exception.hpp(41,23):
-      see declaration of 'sf::Exception'
-  
-C:\Users\jacob\SummitTest\dragonfly\include\DisplayManager.h(17,49): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-  (compiling source file '../../dragonfly/include/DisplayManager.cpp')
-  
-C:\Users\jacob\SummitTest\dragonfly\include\DisplayManager.h(18,47): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-  (compiling source file '../../dragonfly/include/DisplayManager.cpp')
-  
-C:\Users\jacob\SummitTest\dragonfly\include\DisplayManager.cpp(125,43): warning C4244: 'argument': conversion from 'float' to 'unsigned int', possible loss of data
-C:\Users\jacob\SummitTest\dragonfly\include\DisplayManager.cpp(128,44): warning C4244: 'argument': conversion from 'float' to 'unsigned int', possible loss of data
-  Frame.cpp
-C:\Users\jacob\SummitRush\SFML-3.0\include\SFML\System\Exception.hpp(41,47): warning C4275: non dll-interface class 'std::runtime_error' used as base for dll-interface class 'sf::Exception'
-  (compiling source file '../../dragonfly/include/Frame.cpp')
-      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\stdexcept(100,19):
-      see declaration of 'std::runtime_error'
-      C:\Users\jacob\SummitRush\SFML-3.0\include\SFML\System\Exception.hpp(41,23):
-      see declaration of 'sf::Exception'
-  
-C:\Users\jacob\SummitTest\dragonfly\include\DisplayManager.h(17,49): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-  (compiling source file '../../dragonfly/include/Frame.cpp')
-  
-C:\Users\jacob\SummitTest\dragonfly\include\DisplayManager.h(18,47): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-  (compiling source file '../../dragonfly/include/Frame.cpp')
-  
-  GameManager.cpp
-C:\Users\jacob\SummitRush\SFML-3.0\include\SFML\System\Exception.hpp(41,47): warning C4275: non dll-interface class 'std::runtime_error' used as base for dll-interface class 'sf::Exception'
-  (compiling source file '../../dragonfly/include/GameManager.cpp')
-      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\stdexcept(100,19):
-      see declaration of 'std::runtime_error'
-      C:\Users\jacob\SummitRush\SFML-3.0\include\SFML\System\Exception.hpp(41,23):
-      see declaration of 'sf::Exception'
-  
-C:\Users\jacob\SummitTest\dragonfly\include\DisplayManager.h(17,49): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-  (compiling source file '../../dragonfly/include/GameManager.cpp')
-  
-C:\Users\jacob\SummitTest\dragonfly\include\DisplayManager.h(18,47): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-  (compiling source file '../../dragonfly/include/GameManager.cpp')
-  
+﻿  Arrow.cpp
   GameStart.cpp
 C:\Users\jacob\SummitRush\SFML-3.0\include\SFML\System\Exception.hpp(41,47): warning C4275: non dll-interface class 'std::runtime_error' used as base for dll-interface class 'sf::Exception'
   (compiling source file '../../dragonfly/include/GameStart.cpp')
@@ -50,163 +7,21 @@ C:\Users\jacob\SummitRush\SFML-3.0\include\SFML\System\Exception.hpp(41,47): war
       C:\Users\jacob\SummitRush\SFML-3.0\include\SFML\System\Exception.hpp(41,23):
       see declaration of 'sf::Exception'
   
-C:\Users\jacob\SummitTest\dragonfly\include\DisplayManager.h(17,49): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-  (compiling source file '../../dragonfly/include/GameStart.cpp')
-  
-C:\Users\jacob\SummitTest\dragonfly\include\DisplayManager.h(18,47): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-  (compiling source file '../../dragonfly/include/GameStart.cpp')
-  
-C:\Users\jacob\SummitTest\dragonfly\include\GameStart.cpp(93,24): warning C4305: 'argument': truncation from 'int' to 'bool'
-C:\Users\jacob\SummitTest\dragonfly\include\GameStart.cpp(139,48): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\jacob\SummitTest\dragonfly\include\GameStart.cpp(139,35): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-  InputManager.cpp
+C:\Users\jacob\SummitTest\dragonfly\include\GameStart.cpp(162,48): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\jacob\SummitTest\dragonfly\include\GameStart.cpp(162,35): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Hero.cpp
 C:\Users\jacob\SummitRush\SFML-3.0\include\SFML\System\Exception.hpp(41,47): warning C4275: non dll-interface class 'std::runtime_error' used as base for dll-interface class 'sf::Exception'
-  (compiling source file '../../dragonfly/include/InputManager.cpp')
+  (compiling source file '../../dragonfly/include/Hero.cpp')
       C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\stdexcept(100,19):
       see declaration of 'std::runtime_error'
       C:\Users\jacob\SummitRush\SFML-3.0\include\SFML\System\Exception.hpp(41,23):
       see declaration of 'sf::Exception'
   
-C:\Users\jacob\SummitTest\dragonfly\include\DisplayManager.h(17,49): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-  (compiling source file '../../dragonfly/include/InputManager.cpp')
-  
-C:\Users\jacob\SummitTest\dragonfly\include\DisplayManager.h(18,47): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-  (compiling source file '../../dragonfly/include/InputManager.cpp')
-  
-C:\Users\jacob\SummitTest\dragonfly\include\InputManager.cpp(6,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-C:\Users\jacob\SummitTest\dragonfly\include\InputManager.cpp(241,38): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
-C:\Users\jacob\SummitTest\dragonfly\include\InputManager.cpp(241,38): warning C4244:         with
-C:\Users\jacob\SummitTest\dragonfly\include\InputManager.cpp(241,38): warning C4244:         [
-C:\Users\jacob\SummitTest\dragonfly\include\InputManager.cpp(241,38): warning C4244:             T=int
-C:\Users\jacob\SummitTest\dragonfly\include\InputManager.cpp(241,38): warning C4244:         ]
-C:\Users\jacob\SummitTest\dragonfly\include\InputManager.cpp(242,38): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
-C:\Users\jacob\SummitTest\dragonfly\include\InputManager.cpp(242,38): warning C4244:         with
-C:\Users\jacob\SummitTest\dragonfly\include\InputManager.cpp(242,38): warning C4244:         [
-C:\Users\jacob\SummitTest\dragonfly\include\InputManager.cpp(242,38): warning C4244:             T=int
-C:\Users\jacob\SummitTest\dragonfly\include\InputManager.cpp(242,38): warning C4244:         ]
-C:\Users\jacob\SummitTest\dragonfly\include\InputManager.cpp(257,38): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
-C:\Users\jacob\SummitTest\dragonfly\include\InputManager.cpp(257,38): warning C4244:         with
-C:\Users\jacob\SummitTest\dragonfly\include\InputManager.cpp(257,38): warning C4244:         [
-C:\Users\jacob\SummitTest\dragonfly\include\InputManager.cpp(257,38): warning C4244:             T=int
-C:\Users\jacob\SummitTest\dragonfly\include\InputManager.cpp(257,38): warning C4244:         ]
-C:\Users\jacob\SummitTest\dragonfly\include\InputManager.cpp(258,38): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
-C:\Users\jacob\SummitTest\dragonfly\include\InputManager.cpp(258,38): warning C4244:         with
-C:\Users\jacob\SummitTest\dragonfly\include\InputManager.cpp(258,38): warning C4244:         [
-C:\Users\jacob\SummitTest\dragonfly\include\InputManager.cpp(258,38): warning C4244:             T=int
-C:\Users\jacob\SummitTest\dragonfly\include\InputManager.cpp(258,38): warning C4244:         ]
-  Points.cpp
-C:\Users\jacob\SummitRush\SFML-3.0\include\SFML\System\Exception.hpp(41,47): warning C4275: non dll-interface class 'std::runtime_error' used as base for dll-interface class 'sf::Exception'
-  (compiling source file '../../dragonfly/include/Points.cpp')
-      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\stdexcept(100,19):
-      see declaration of 'std::runtime_error'
-      C:\Users\jacob\SummitRush\SFML-3.0\include\SFML\System\Exception.hpp(41,23):
-      see declaration of 'sf::Exception'
-  
-C:\Users\jacob\SummitTest\dragonfly\include\DisplayManager.h(17,49): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-  (compiling source file '../../dragonfly/include/Points.cpp')
-  
-C:\Users\jacob\SummitTest\dragonfly\include\DisplayManager.h(18,47): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-  (compiling source file '../../dragonfly/include/Points.cpp')
-  
-  Reticle.cpp
-C:\Users\jacob\SummitRush\SFML-3.0\include\SFML\System\Exception.hpp(41,47): warning C4275: non dll-interface class 'std::runtime_error' used as base for dll-interface class 'sf::Exception'
-  (compiling source file '../../dragonfly/include/Reticle.cpp')
-      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\stdexcept(100,19):
-      see declaration of 'std::runtime_error'
-      C:\Users\jacob\SummitRush\SFML-3.0\include\SFML\System\Exception.hpp(41,23):
-      see declaration of 'sf::Exception'
-  
-C:\Users\jacob\SummitTest\dragonfly\include\DisplayManager.h(17,49): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-  (compiling source file '../../dragonfly/include/Reticle.cpp')
-  
-C:\Users\jacob\SummitTest\dragonfly\include\DisplayManager.h(18,47): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-  (compiling source file '../../dragonfly/include/Reticle.cpp')
-  
-  Star.cpp
-C:\Users\jacob\SummitRush\SFML-3.0\include\SFML\System\Exception.hpp(41,47): warning C4275: non dll-interface class 'std::runtime_error' used as base for dll-interface class 'sf::Exception'
-  (compiling source file '../../dragonfly/include/Star.cpp')
-      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\stdexcept(100,19):
-      see declaration of 'std::runtime_error'
-      C:\Users\jacob\SummitRush\SFML-3.0\include\SFML\System\Exception.hpp(41,23):
-      see declaration of 'sf::Exception'
-  
-C:\Users\jacob\SummitTest\dragonfly\include\DisplayManager.h(17,49): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-  (compiling source file '../../dragonfly/include/Star.cpp')
-  
-C:\Users\jacob\SummitTest\dragonfly\include\DisplayManager.h(18,47): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-  (compiling source file '../../dragonfly/include/Star.cpp')
-  
-  ViewObject.cpp
-C:\Users\jacob\SummitRush\SFML-3.0\include\SFML\System\Exception.hpp(41,47): warning C4275: non dll-interface class 'std::runtime_error' used as base for dll-interface class 'sf::Exception'
-  (compiling source file '../../dragonfly/include/ViewObject.cpp')
-      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\stdexcept(100,19):
-      see declaration of 'std::runtime_error'
-      C:\Users\jacob\SummitRush\SFML-3.0\include\SFML\System\Exception.hpp(41,23):
-      see declaration of 'sf::Exception'
-  
-C:\Users\jacob\SummitTest\dragonfly\include\DisplayManager.h(17,49): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-  (compiling source file '../../dragonfly/include/ViewObject.cpp')
-  
-C:\Users\jacob\SummitTest\dragonfly\include\DisplayManager.h(18,47): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-  (compiling source file '../../dragonfly/include/ViewObject.cpp')
-  
-C:\Users\jacob\SummitTest\dragonfly\include\ViewObject.cpp(42,63): warning C4244: 'argument': conversion from 'unsigned __int64' to 'float', possible loss of data
-C:\Users\jacob\SummitTest\dragonfly\include\ViewObject.cpp(44,24): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-C:\Users\jacob\SummitTest\dragonfly\include\ViewObject.cpp(45,34): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\jacob\SummitTest\dragonfly\include\ViewObject.cpp(46,34): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\jacob\SummitTest\dragonfly\include\ViewObject.cpp(48,24): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-C:\Users\jacob\SummitTest\dragonfly\include\ViewObject.cpp(49,51): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\jacob\SummitTest\dragonfly\include\ViewObject.cpp(50,55): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\jacob\SummitTest\dragonfly\include\ViewObject.cpp(97,25): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-C:\Users\jacob\SummitTest\dragonfly\include\ViewObject.cpp(98,26): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-C:\Users\jacob\SummitTest\dragonfly\include\ViewObject.cpp(102,37): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\jacob\SummitTest\dragonfly\include\ViewObject.cpp(106,37): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\jacob\SummitTest\dragonfly\include\ViewObject.cpp(110,37): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\jacob\SummitTest\dragonfly\include\ViewObject.cpp(114,55): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\jacob\SummitTest\dragonfly\include\ViewObject.cpp(114,37): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\jacob\SummitTest\dragonfly\include\ViewObject.cpp(117,55): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\jacob\SummitTest\dragonfly\include\ViewObject.cpp(117,37): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\jacob\SummitTest\dragonfly\include\ViewObject.cpp(120,55): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\jacob\SummitTest\dragonfly\include\ViewObject.cpp(120,37): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\jacob\SummitTest\dragonfly\include\ViewObject.cpp(123,55): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\jacob\SummitTest\dragonfly\include\ViewObject.cpp(123,37): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\jacob\SummitTest\dragonfly\include\ViewObject.cpp(127,55): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\jacob\SummitTest\dragonfly\include\ViewObject.cpp(127,37): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\jacob\SummitTest\dragonfly\include\ViewObject.cpp(131,55): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\jacob\SummitTest\dragonfly\include\ViewObject.cpp(131,37): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-  WorldManager.cpp
-C:\Users\jacob\SummitRush\SFML-3.0\include\SFML\System\Exception.hpp(41,47): warning C4275: non dll-interface class 'std::runtime_error' used as base for dll-interface class 'sf::Exception'
-  (compiling source file '../../dragonfly/include/WorldManager.cpp')
-      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\stdexcept(100,19):
-      see declaration of 'std::runtime_error'
-      C:\Users\jacob\SummitRush\SFML-3.0\include\SFML\System\Exception.hpp(41,23):
-      see declaration of 'sf::Exception'
-  
-C:\Users\jacob\SummitTest\dragonfly\include\DisplayManager.h(17,49): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-  (compiling source file '../../dragonfly/include/WorldManager.cpp')
-  
-C:\Users\jacob\SummitTest\dragonfly\include\DisplayManager.h(18,47): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-  (compiling source file '../../dragonfly/include/WorldManager.cpp')
-  
-C:\Users\jacob\SummitTest\dragonfly\include\WorldManager.cpp(20,68): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\jacob\SummitTest\dragonfly\include\WorldManager.cpp(20,50): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\jacob\SummitTest\dragonfly\include\WorldManager.cpp(272,15): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-C:\Users\jacob\SummitTest\dragonfly\include\WorldManager.cpp(274,40): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\jacob\SummitTest\dragonfly\include\WorldManager.cpp(279,30): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-  game (2).cpp
-C:\Users\jacob\SummitRush\SFML-3.0\include\SFML\System\Exception.hpp(41,47): warning C4275: non dll-interface class 'std::runtime_error' used as base for dll-interface class 'sf::Exception'
-  (compiling source file '../../dragonfly/include/game%20(2).cpp')
-      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\stdexcept(100,19):
-      see declaration of 'std::runtime_error'
-      C:\Users\jacob\SummitRush\SFML-3.0\include\SFML\System\Exception.hpp(41,23):
-      see declaration of 'sf::Exception'
-  
-C:\Users\jacob\SummitTest\dragonfly\include\DisplayManager.h(17,49): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-  (compiling source file '../../dragonfly/include/game%20(2).cpp')
-  
-C:\Users\jacob\SummitTest\dragonfly\include\DisplayManager.h(18,47): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-  (compiling source file '../../dragonfly/include/game%20(2).cpp')
-  
+C:\Users\jacob\SummitTest\dragonfly\include\Hero.cpp(180,37): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\jacob\SummitTest\dragonfly\include\Hero.cpp(198,36): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\jacob\SummitTest\dragonfly\include\Hero.cpp(231,30): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\jacob\SummitTest\dragonfly\include\Hero.cpp(339,66): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\jacob\SummitTest\dragonfly\include\Hero.cpp(385,28): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  Skeleton.cpp
   Generating Code...
-C:\Users\jacob\SummitTest\dragonfly\include\Frame.cpp(73,1): warning C4715: 'df::Frame::draw': not all control paths return a value
   Lu-Jacob Project 2 IMGD 3000.vcxproj -> C:\Users\jacob\Downloads\Lu-Jacob Project 2 IMGD 3000\dragonfly\x64\Debug\Lu-Jacob Project 2 IMGD 3000.exe

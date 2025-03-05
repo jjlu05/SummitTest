@@ -21,9 +21,11 @@
   <ItemGroup>
     <ClInclude Include="..\..\dragonfly\include\Animation.h" />
     <ClInclude Include="..\..\dragonfly\include\Arrow.h" />
+    <ClInclude Include="..\..\dragonfly\include\Bar.h" />
     <ClInclude Include="..\..\dragonfly\include\Bat.h" />
     <ClInclude Include="..\..\dragonfly\include\Box.h" />
     <ClInclude Include="..\..\dragonfly\include\Bullet.h" />
+    <ClInclude Include="..\..\dragonfly\include\Checkpoint.h" />
     <ClInclude Include="..\..\dragonfly\include\Clock.h" />
     <ClInclude Include="..\..\dragonfly\include\Color.h" />
     <ClInclude Include="..\..\dragonfly\include\DisplayManager.h" />
@@ -67,9 +69,11 @@
   <ItemGroup>
     <ClCompile Include="..\..\dragonfly\include\Animation.cpp" />
     <ClCompile Include="..\..\dragonfly\include\Arrow.cpp" />
+    <ClCompile Include="..\..\dragonfly\include\Bar.cpp" />
     <ClCompile Include="..\..\dragonfly\include\Bat.cpp" />
     <ClCompile Include="..\..\dragonfly\include\Box.cpp" />
     <ClCompile Include="..\..\dragonfly\include\Bullet.cpp" />
+    <ClCompile Include="..\..\dragonfly\include\Checkpoint.cpp" />
     <ClCompile Include="..\..\dragonfly\include\Clock.cpp" />
     <ClCompile Include="..\..\dragonfly\include\DisplayManager.cpp" />
     <ClCompile Include="..\..\dragonfly\include\Event.cpp" />

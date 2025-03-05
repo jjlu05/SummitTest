@@ -18,7 +18,7 @@ void populateWorld(void);
 
 int main(int argc, char* argv[]) {
     df::Vector corner(0, 0);
-    df::Box world_boundary(corner, 160, 160);
+    df::Box world_boundary(corner, 160, 100);
     WM.setBoundary(world_boundary);
  
 
@@ -53,7 +53,9 @@ void loadResources(void) {
     RM.loadSprite("arrow.txt", "arrow");
     RM.loadSprite("hero-crouch.txt", "hero-crouch");
     RM.loadSprite("hero-squat.txt", "hero-squat");
-
+    RM.loadSprite("bar.txt", "bar");
+    RM.loadSprite("barPower.txt", "barPower");
+    RM.loadSprite("checkpoint.txt", "checkpoint");
     RM.loadSprite("ledge.txt", "ledge");
     RM.loadSprite("wall.txt", "wall");
     RM.loadSprite("saucer-spr.txt", "saucer");
