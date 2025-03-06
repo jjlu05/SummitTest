@@ -11,6 +11,8 @@
 class Bar : public df::Object {
 
 private:// Track key states.
+	float allowScoreDec = 100;
+
 	int allowJumpCount = 0;
 	bool allowJump = true;
 	bool holdingA = false;

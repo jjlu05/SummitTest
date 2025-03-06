@@ -11,6 +11,9 @@
 class Hero : public df::Object {
 
  private:
+
+	 float allowScoreDec = 100;
+
 	 int allowJumpCount = 0;
 	 bool allowJump = true;
 	 int lives = 3;
@@ -48,5 +51,8 @@ class Hero : public df::Object {
   ~Hero();
   int eventHandler(const df::Event *p_e);
   int returnLives();
+  bool allowJumpGrounded();
+  bool jumpingGrounded();
+
 };
 #endif

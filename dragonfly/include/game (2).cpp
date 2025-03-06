@@ -49,6 +49,8 @@ int main(int argc, char* argv[]) {
 // Load resources (sprites, sound effects, music).
 void loadResources(void) {
     RM.loadSprite("skeleton.txt", "skeleton");
+    RM.loadSprite("mole-right.txt", "mole-right");
+
     RM.loadSprite("mole.txt", "mole");
     RM.loadSprite("arrow.txt", "arrow");
     RM.loadSprite("hero-crouch.txt", "hero-crouch");

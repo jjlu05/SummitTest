@@ -21,11 +21,9 @@
 #include "EventOut.h"
 #include "Bar.h"
 #include "EventView.h"
-int allowJumpCount = 0;
-bool allowJump = true;
-float allowScoreDec = 100;
 
-
+bool allowLMove = true;
+bool allowRMove = true;
 Hero::Hero() {
     // Link to "ship" sprite.
     setSprite("hero");
@@ -63,6 +61,7 @@ Hero::Hero() {
 }
 
 Hero::~Hero() {
+    std::cout << "Should be deleted";
    /* df::ObjectList allObjs = WM.getAllObjects();
     Object* temp = nullptr;
     for (int i = 0; i < allObjs.getCount(); i++) {
@@ -94,7 +93,7 @@ Hero::~Hero() {
 // Handle event.
 // Return 0 if ignored, else 1.
 int Hero::eventHandler(const df::Event* p_e) {
-    df::EventView ev1("         LIVES: ", -1, true);
+    df::EventView ev1("LIVES:", -1, true);
 
 
     if (p_e->getType() == df::OUT_EVENT) {
@@ -177,8 +176,17 @@ void Hero::kbd(const df::EventKeyboard* p_keyboard_event) {
         if (p_keyboard_event->getKeyboardAction() == df::KEY_PRESSED) {
             holdingA = true;
             if (xCountdown == 0) {
-                desiredX = -0.3 * 2 * 1.5;
-                x = desiredX;
+                if (grounded) {
+                    if (allowLMove) {
+                        desiredX = -0.3 * 2 * 1.5;
+                        x = desiredX;
+                    }
+                }
+                else {
+                    desiredX = -0.3 * 2 * 1.5;
+                    x = desiredX;
+                }
+                
             }
         }
         if (p_keyboard_event->getKeyboardAction() == df::KEY_RELEASED) {
@@ -195,8 +203,16 @@ void Hero::kbd(const df::EventKeyboard* p_keyboard_event) {
         if (p_keyboard_event->getKeyboardAction() == df::KEY_PRESSED) {
             holdingD = true;
             if (xCountdown == 0) {
-                desiredX = 0.3 * 2 * 1.5;
-                x = desiredX;
+                if (grounded) {
+                    if (allowRMove) {
+                        desiredX = 0.3 * 2 * 1.5;
+                        x = desiredX;
+                    }
+                }
+                else {
+                    desiredX = 0.3 * 2 * 1.5;
+                    x = desiredX;
+                }
             }
         }
         if (p_keyboard_event->getKeyboardAction() == df::KEY_RELEASED) {
@@ -219,6 +235,7 @@ void Hero::kbd(const df::EventKeyboard* p_keyboard_event) {
                     jumping = true;
                     allowJump = false;
                     allowJumpCount = 40;
+                    
                 }
             }
            
@@ -244,50 +261,58 @@ void Hero::kbd(const df::EventKeyboard* p_keyboard_event) {
 }
 
 
-// Move method.
-void Hero::move(int dy) {
-    if (move_countdown > 0)
-        return;
-    move_countdown = move_slowdown;
-    df::Vector new_pos(getPosition().getX(), getPosition().getY() + dy);
-    if ((new_pos.getY() > 3) &&
-        (new_pos.getY() < WM.getBoundary().getVertical() - 1))
-        WM.moveObject(this, new_pos);
-    df::Box new_view = WM.getView();
-    df::Vector corner = new_view.getCorner();
-    corner.setY(corner.getY() + dy);
-    new_view.setCorner(corner);
-    WM.setView(new_view);
-}
 
-// Fire method.
-void Hero::fire(df::Vector target) {
-    LM.writeLog("FIRE FUNCTION CALLED");
-    if (fire_countdown > 0) {
-        LM.writeLog("CANNOT FIRE YET: Countdown = %d", fire_countdown);
-        return;
-    }
-    fire_countdown = fire_slowdown;
-    Bullet* p = new Bullet(getPosition());
-    p->setVelocity(df::Vector(p->getVelocity().getX(),
-        (target.getY() - getPosition().getY()) /
-        (target.getX() - getPosition().getX())));
-    LM.writeLog("BULLET CREATED AT (%f, %f)", getPosition().getX(), getPosition().getY());
-    df::Sound* p_sound = RM.getSound("fire");
-    if (p_sound) {
-        LM.writeLog("PLAYING FIRE SOUND");
-        p_sound->play();
-    }
-    else {
-        LM.writeLog("FIRE SOUND NOT FOUND");
-    }
-}
+
+
+
 
 // Step method.
 void Hero::step() {
+
+    df::Vector vGLeft(getPosition().getX() - 5.0, getPosition().getY() + 4.5);
+    df::ObjectList colGLeft = WM.getCollisions(this, vGLeft);
+    if (grounded&&jumping) {
+        if (colGLeft.isEmpty()) {
+            std::cout << "Nothing ground left";
+            allowLMove = false;
+            if (desiredX < 0) {
+                desiredX = 0;
+            };
+
+        }
+        else {
+            allowLMove = true;
+
+        }
+    }
+
+   
+    df::Vector vGRight(getPosition().getX() + 5.0, getPosition().getY() + 4.5);
+    df::ObjectList colGRight = WM.getCollisions(this, vGRight);
+    if (grounded && jumping) {
+        if (colGRight.isEmpty()) {
+            std::cout << "Nothing ground right";
+            allowRMove = false;
+            if (desiredX > 0) {
+                desiredX = 0;
+            };
+
+        }
+        else {
+            allowRMove = true;
+
+        }
+    }
+
+
+
+
+
+
+
     allowScoreDec--;
     if (allowScoreDec == 0) {
-        df::EventView ev2("         Score: ", -1, true);
+        df::EventView ev2("SCORE:", -1, true);
         WM.onEvent(&ev2);
         allowScoreDec=100;
     }
@@ -315,10 +340,10 @@ void Hero::step() {
     }
     animationSwitch--;
     if (ij) {
-        float MAX_JUMP = 100.0;
+        float MAX_JUMP = 55.0;
         jumpIncrementor++;
         if (jumpIncrementor > MAX_JUMP) {
-            jumpIncrementor = MAX_JUMP;
+            jumpIncrementor = 0;
         }
     }
     // Decrease countdowns.
@@ -336,7 +361,7 @@ void Hero::step() {
     df::Vector v(getPosition().getX(), getPosition().getY() + getVelocity().getY()+1);
     df::ObjectList objL = WM.getCollisions(this, v);
     // Check collisions above.
-    df::Vector vAbove(getPosition().getX(), getPosition().getY() - 1.33);
+    df::Vector vAbove(getPosition().getX(), getPosition().getY() - 1);
     df::ObjectList objAbove = WM.getCollisions(this, vAbove);
 
     // Update grounded state.
@@ -399,15 +424,14 @@ void Hero::step() {
 
 }
 
-// Send "nuke" event to all objects.
-void Hero::nuke() {
-    if (!nuke_count)
-        return;
-    nuke_count--;
-    EventNuke nuke;
-    WM.onEvent(&nuke);
-    df::EventView ev("Nukes", -1, true);
-    WM.onEvent(&ev);
-    df::Sound* p_sound = RM.getSound("nuke");
-    p_sound->play();
+ 
+
+
+
+bool Hero::allowJumpGrounded() {
+    return allowJump && grounded;
+}
+
+bool Hero::jumpingGrounded() {
+    return jumping && grounded;
 }

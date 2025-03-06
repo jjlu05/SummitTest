@@ -20,6 +20,9 @@
 #include "iostream"
 #include "EventOut.h"
 #include "Bar.h"
+#include "EventView.h"
+#include "Hero.h"
+Hero* temp1 = nullptr;
 
 Bar::Bar() {
     // Link to "ship" sprite.
@@ -58,10 +61,18 @@ Bar::Bar() {
 }
 
 Bar::~Bar() {
-    df::ObjectList allObjs = WM.getAllObjects();
-    Object* temp = nullptr;
-   
-    // Create GameOver object.
+    std::cout << "Should be deleted";
+    /* df::ObjectList allObjs = WM.getAllObjects();
+     Object* temp = nullptr;
+     for (int i = 0; i < allObjs.getCount(); i++) {
+         if (allObjs[i]->getType() == "Bar") {
+             temp = allObjs[i];
+             temp->setPosition(df::Vector(this->getPosition().getX(), this->getPosition().getY() + 2));
+         }
+
+     }
+     WM.markForDelete(temp);*/
+     // Create GameOver object.
     new GameOver;
 
     // Make big explosion.
@@ -76,70 +87,30 @@ Bar::~Bar() {
     }
 
     // Mark Reticle for deletion.
-    WM.markForDelete(this);
-
     WM.markForDelete(p_reticle);
 }
 
 // Handle event.
 // Return 0 if ignored, else 1.
 int Bar::eventHandler(const df::Event* p_e) {
+    df::EventView ev1("LIVES:", -1, true);
 
-    if (p_e->getType() == df::OUT_EVENT) {
-        setPosition(df::Vector(70, 60));
-        this->setVelocity(df::Vector(0, 0));
-        return 1;
-    }
+
+     
     if (p_e->getType() == df::KEYBOARD_EVENT) {
         const df::EventKeyboard* p_keyboard_event = dynamic_cast<const df::EventKeyboard*>(p_e);
         kbd(p_keyboard_event);
         return 1;
     }
-    if (p_e->getType() == df::MSE_EVENT) {
-        LM.writeLog("MOUSE EVENT HAPPENED");
-        const df::EventMouse* p_mouse_event = dynamic_cast<const df::EventMouse*>(p_e);
-        mouse(p_mouse_event);
-        return 1;
-    }
+    
     if (p_e->getType() == df::STEP_EVENT) {
         step();
         return 1;
     }
-    if (p_e->getType() == df::COLLISION_EVENT) {
-        const df::EventCollision* p_collision_event = dynamic_cast<const df::EventCollision*>(p_e);
-        // Handle collisions with Bat.
-        if (((p_collision_event->getObject1()->getType()) == "Bat") ||
-            ((p_collision_event->getObject2()->getType()) == "Bat"))
-        {
-            xCountdown = 10;
-            x = -getVelocity().getX();
-            y = -1;
-        }
-        // Handle collisions with Wall.
-        if (((p_collision_event->getObject1()->getType()) == "Wall") ||
-            ((p_collision_event->getObject2()->getType()) == "Wall"))
-        {
-            x = 0;
-        }
-        // Handle collisions with Ground.
-        if (((p_collision_event->getObject1()->getType()) == "Ground") ||
-            ((p_collision_event->getObject2()->getType()) == "Ground"))
-        {
-            std::cout << "touching";
-            df::Vector vSide = df::Vector(this->getPosition().getX() - 1, this->getPosition().getY());
-            df::ObjectList objS = WM.getCollisions(this, vSide);
-            df::Vector vSide2 = df::Vector(this->getPosition().getX() + 1, this->getPosition().getY());
-            df::ObjectList objS2 = WM.getCollisions(this, vSide2);
-            if ((!objS.isEmpty()) || (!objS2.isEmpty())) {
-                std::cout << "Side collision";
-                x = 0;
-            }
-        }
-        return 1;
-    }
+    
     return 0;
 }
-
+ 
 // Mouse event handler.
 void Bar::mouse(const df::EventMouse* p_mouse_event) {
     // Currently unused.
@@ -187,88 +158,67 @@ void Bar::kbd(const df::EventKeyboard* p_keyboard_event) {
         break;
     case df::Keyboard::SPACE:
         if (p_keyboard_event->getKeyboardAction() == df::KEY_PRESSED) {
-            if (allowJump) {
-                // Only start a jump if the Bar is grounded.
-                if (grounded) {
-                    setSprite("barPower");
-                    ij = true;
-                    animationSwitch = 30;
-                    jumping = true;
-                    allowJump = false;
-                    allowJumpCount = 80;
-                }
+            if (temp1->allowJumpGrounded()) {
+                setSprite("barPower");
+                ij = true;
+                animationSwitch = 30;
+                jumping = true;
+                allowJump = false;
+                allowJumpCount = 40;
             }
+                    
 
+                
         }
+
+       
         else if (p_keyboard_event->getKeyboardAction() == df::KEY_RELEASED) {
-            // Only complete the jump if it was initiated (jumping is true).
-            if (jumping && grounded) {
+            // Only complete the jump if it was initiated (jumping is true)
+            if (temp1->jumpingGrounded()) {
                 setSprite("bar");
                 jumping = false;
                 ij = false;
                 y = -0.6 * 2 - jumpIncrementor / 100;
                 jumpIncrementor = 0;
             }
-            // If the space was pressed in air, do nothing on release.
+            // If the space was pressed in air, do nothing on release
         }
         break;
-    case df::Keyboard::Q:  // Quit
-        if (p_keyboard_event->getKeyboardAction() == df::KEY_PRESSED)
-            WM.markForDelete(this);
-        break;
+     
     default:
         break;
     }
 }
 
 
-// Move method.
-void Bar::move(int dy) {
-    if (move_countdown > 0)
-        return;
-    move_countdown = move_slowdown;
-    df::Vector new_pos(getPosition().getX(), getPosition().getY() + dy);
-    if ((new_pos.getY() > 3) &&
-        (new_pos.getY() < WM.getBoundary().getVertical() - 1))
-        WM.moveObject(this, new_pos);
-    df::Box new_view = WM.getView();
-    df::Vector corner = new_view.getCorner();
-    corner.setY(corner.getY() + dy);
-    new_view.setCorner(corner);
-    WM.setView(new_view);
-}
-
-// Fire method.
-void Bar::fire(df::Vector target) {
-    LM.writeLog("FIRE FUNCTION CALLED");
-    if (fire_countdown > 0) {
-        LM.writeLog("CANNOT FIRE YET: Countdown = %d", fire_countdown);
-        return;
-    }
-    fire_countdown = fire_slowdown;
-    Bullet* p = new Bullet(getPosition());
-    p->setVelocity(df::Vector(p->getVelocity().getX(),
-        (target.getY() - getPosition().getY()) /
-        (target.getX() - getPosition().getX())));
-    LM.writeLog("BULLET CREATED AT (%f, %f)", getPosition().getX(), getPosition().getY());
-    df::Sound* p_sound = RM.getSound("fire");
-    if (p_sound) {
-        LM.writeLog("PLAYING FIRE SOUND");
-        p_sound->play();
-    }
-    else {
-        LM.writeLog("FIRE SOUND NOT FOUND");
-    }
-}
+ 
 
 // Step method.
 void Bar::step() {
+    
+    df::ObjectList allObjs = WM.getAllObjects();
+    for (int i = 0; i < allObjs.getCount(); i++) {
+        if (allObjs[i]->getType() == "Hero") {
+            Hero* hero = dynamic_cast<Hero*>(allObjs[i]);
+
+            temp1 = hero;   // Could move out of step event but lazy
+        }
+
+    }
+
+
+
+
     allowJumpCount--;
     if (allowJumpCount == 0) {
         allowJump = true;
-        allowJumpCount = 60;
+        allowJumpCount = 40;
     }
-  
+     
+
+    else {
+        setSprite("Bar");
+    }
     animationSwitch--;
     if (ij) {
         float MAX_JUMP = 100.0;
@@ -344,26 +294,7 @@ void Bar::step() {
         }
         this->setVelocity(df::Vector(x, newYVelocity));
     }
-    df::ObjectList allObjs = WM.getAllObjects();
-    for (int i = 0; i < allObjs.getCount(); i++) {
-        if (allObjs[i]->getType() == "Bar") {
-            Object* temp = allObjs[i];
-            temp->setPosition(df::Vector(this->getPosition().getX(), this->getPosition().getY() + 2));
-        }
-
-    }
+    
 
 }
-
-// Send "nuke" event to all objects.
-void Bar::nuke() {
-    if (!nuke_count)
-        return;
-    nuke_count--;
-    EventNuke nuke;
-    WM.onEvent(&nuke);
-    df::EventView ev("Nukes", -1, true);
-    WM.onEvent(&ev);
-    df::Sound* p_sound = RM.getSound("nuke");
-    p_sound->play();
-}
+ 

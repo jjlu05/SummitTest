@@ -1,5 +1,6 @@
 #include "Object.h"
 #include "EventCollision.h"
+#include "Hero.h"
 
 
 class Checkpoint : public df::Object {
@@ -8,9 +9,10 @@ private:
 	void nextLevel();
 	void win();
 	int level;
+	Hero* p_hero;
+
 
 public:
-	Checkpoint();
+	Checkpoint(Hero* a_hero);
 	int eventHandler(const df::Event* p_e) override;
 };
-

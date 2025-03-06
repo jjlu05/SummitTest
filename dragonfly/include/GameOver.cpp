@@ -8,6 +8,7 @@
 #include "LogManager.h"
 #include "ResourceManager.h"
 #include "WorldManager.h"
+#include "Vector.h"
 
 // Game includes.
 #include "GameOver.h"
@@ -15,56 +16,56 @@
 
 GameOver::GameOver() {
 
-  setType("GameOver");
+    setType("GameOver");
 
-  // Link to "message" sprite.
-  if (setSprite("gameover") == 0)
-    time_to_live = getAnimation().getSprite()->getFrameCount() * 15;
-  else
-    time_to_live = 0;
+    // Link to "message" sprite.
+    if (setSprite("gameover") == 0)
+        time_to_live = getAnimation().getSprite()->getFrameCount() * 15;
+    else
+        time_to_live = 0;
 
-  // Put in center of window.
-  setLocation(df::CENTER_CENTER);
-  
-  // Register for step event.
+    // Put in center of window.
+    setPosition(df::Vector(50, 50));
+
+    // Register for step event.
 #ifdef DF_REGISTER_INTEREST
-  registerInterest(df::STEP_EVENT);
+    registerInterest(df::STEP_EVENT);
 #endif
-  
-  // Play "game over" sound.
-  df::Sound *p_sound = RM.getSound("game over");
-  p_sound->play();
+
+    // Play "game over" sound.
+    df::Sound* p_sound = RM.getSound("game over");
+    p_sound->play();
 }
 
 // When done, game over so shut down.
 GameOver::~GameOver() {
-  WM.markForDelete(this);
-  GM.setGameOver();
+    WM.markForDelete(this);
+    GM.setGameOver();
 }
 
 // Handle event.
 // Return 0 if ignored, else 1.
-int GameOver::eventHandler(const df::Event *p_e) {
+int GameOver::eventHandler(const df::Event* p_e) {
 
-  if (p_e->getType() == df::STEP_EVENT) {
-    step();
-    return 1;
-  }
+    if (p_e->getType() == df::STEP_EVENT) {
+        step();
+        return 1;
+    }
 
-  // If get here, have ignored this event.
-  return 0;
+    // If get here, have ignored this event.
+    return 0;
 }
 
 // Count down to end of message.
 void GameOver::step() {
-  time_to_live--;
-  if (time_to_live <= 0) { 
-    WM.markForDelete(this);
-  }
+    time_to_live--;
+    if (time_to_live <= 0) {
+        WM.markForDelete(this);
+    }
 }
 
 // Override default draw so as not to display "value".
 int GameOver::draw() {
-  df::Object::draw();
-  return 0;
+    df::Object::draw();
+    return 0;
 }

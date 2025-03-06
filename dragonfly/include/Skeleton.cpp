@@ -1,8 +1,3 @@
-
-
-
-
-
 #include "Skeleton.h"
 #include "EventStep.h"
 #include "Hero.h"
@@ -50,7 +45,10 @@ void Skeleton::step() {
 	attack_range.setCorner(corner);
 	attack_cooldown--;
 
-	if (std::abs((getPosition().getMagnitude() - p_hero->getPosition().getMagnitude())) <= 30) {
+	df::Vector distance = df::Vector(getPosition().getX() - p_hero->getPosition().getX(),
+		getPosition().getY() - p_hero->getPosition().getY());
+
+	if (std::abs(distance.getMagnitude()) <= 50) {
 		if (attack_cooldown <= 0) {
 			attack();
 			attack_cooldown = attack_slowdown;
@@ -76,3 +74,4 @@ void Skeleton::attack() {
 	Arrow* arrow = new Arrow(getPosition());
 	arrow->setVelocity(v);
 }
+

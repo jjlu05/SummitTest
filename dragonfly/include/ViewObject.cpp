@@ -26,7 +26,10 @@ namespace df {
         DM.setA(1.4);
         // Construct the string to display
         std::string temp_str;
-        if (m_border) {
+        if (!m_draw_value) {
+            temp_str = getViewString();
+        }
+        else if (m_border) {
             temp_str = " " + getViewString() + " " + toString(m_value) + " ";
         }
         else {
