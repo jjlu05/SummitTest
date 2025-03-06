@@ -5,7 +5,10 @@
 #include "EventOut.h"
 #include "EventStep.h"
 #include "Hero.h"
+
+#include "ResourceManager.h"
 Arrow::Arrow(df::Vector skel_pos) {
+	hit1 = RM.getSound("boom");
 	setType("Arrow");
 	setSprite("arrow");
 	setSolidness(df::SOFT);
@@ -51,17 +54,17 @@ void Arrow::hit(const df::EventCollision* p_collision_event) {
 	}*/
 	if (p_collision_event->getObject1()->getType() == "Hero") {
 		Hero* hero = dynamic_cast<Hero*>(p_collision_event->getObject1());
-
-		if (hero->returnLives()>0) {
+		hit1->play();
 			WM.onEvent(&ev1);
-		}
+		
 	}
 	else if (p_collision_event->getObject2()->getType() == "Hero") {
+		hit1->play();
 		Hero* hero = dynamic_cast<Hero*>(p_collision_event->getObject2());
 
-		if (hero->returnLives() > 0) {
+		
 			WM.onEvent(&ev1);
-		}
+		
 	}
 	if (((p_collision_event->getObject1()->getType()) == "Wall") ||
 		((p_collision_event->getObject2()->getType()) == "Wall")) {

@@ -153,6 +153,9 @@
     <ClInclude Include="..\..\dragonfly\include\Checkpoint.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\dragonfly\include\GameWin.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\dragonfly\include\Manager.cpp">
@@ -291,6 +294,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\dragonfly\include\Checkpoint.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\dragonfly\include\GameWin.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

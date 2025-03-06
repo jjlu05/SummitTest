@@ -30,6 +30,7 @@
 #include "EventView.h"
 #include "Bar.h"
 #include "Checkpoint.h"
+
 int position = 4;
 bool started1 = false;
 GameStart::GameStart() {
@@ -48,8 +49,11 @@ GameStart::GameStart() {
 #endif
 
     // Play start music.
-    p_music = RM.getMusic("start music");
+    p_music = RM.getMusic("menu");
     playMusic();
+    wind = RM.getMusic("wind");
+    wind->play();
+    
 }
 
 // Play start music.
@@ -126,6 +130,15 @@ void GameStart::start() {
 
 
     Object* deaths = new Object();
+    Object* background = new Object();
+    background->setSolidness(df::SPECTRAL);
+    background->setPosition(df::Vector(20, 50));
+    background->setSprite("background");
+    Object* background2 = new Object();
+    background2->setSolidness(df::SPECTRAL);
+    background2->setPosition(df::Vector(85, 70));
+    background2->setSprite("background");
+
     /*Bar* bar = new Bar();
     bar->setSolidness(df::SPECTRAL);
     bar->setPosition(df::Vector(70, 56));*/
@@ -139,10 +152,10 @@ void GameStart::start() {
     int center_x = DM.getHorizontal() / 2;
     int center_y = DM.getVertical() / 2;
     hero->setPosition(df::Vector(70, 60));
-    Skeleton* skel = new Skeleton(hero);
+ /*   Skeleton* skel = new Skeleton(hero);
     skel->setPosition(df::Vector(80, 30));
     Skeleton* skel2 = new Skeleton(hero);
-    skel2->setPosition(df::Vector(150, 57));
+    skel2->setPosition(df::Vector(150, 57));*/
 
     Checkpoint* chkpt = new Checkpoint(hero);
     chkpt->setSprite("checkpoint");
@@ -153,8 +166,8 @@ void GameStart::start() {
     Wall* wall2 = new Wall(2);
     wall2->setPosition(df::Vector(108, 44));
 
-    Bat* bat = new Bat();
-    bat->setPosition(df::Vector(80, 50));
+   /* Bat* bat = new Bat();
+    bat->setPosition(df::Vector(80, 65));*/
     Ground* ground = new Ground();
     ground->setPosition(df::Vector(70, 80));
     // Setup heads-up display.
@@ -166,8 +179,8 @@ void GameStart::start() {
     //p_vo->setColor(df::YELLOW);
     // Pause start music.
 
-    Mole* mole = new Mole;
-    mole->setPosition(df::Vector(80, 40));
+    //Mole* mole = new Mole;
+    //mole->setPosition(df::Vector(80, 40));
     p_music->pause();
 
     // When game starts, destroy this object.
@@ -179,8 +192,8 @@ void GameStart::start() {
     Ledge* ledge1 = new Ledge();
     ledge1->setPosition(df::Vector(30, 40));
 
-    //Mole* mole = new Mole();
-    //mole->setPosition(df::Vector(60, 40));
+    Mole* mole = new Mole();
+    mole->setPosition(df::Vector(60, 40));
 
 
 }

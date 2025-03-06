@@ -9,7 +9,8 @@
 #include "WorldManager.h"
 #include "ObjectList.h"
 #include "LogManager.h"
-
+#include <iostream>
+#include "GameWin.h"
 Checkpoint::Checkpoint(Hero* a_hero) {
 	level = 1;
 	setType("Checkpoint");
@@ -51,7 +52,7 @@ void Checkpoint::nextLevel() {
 		df::Object* p_cur_obj = objs[i];
 
 		if (p_cur_obj->getType() == "Hero") {
-			p_cur_obj->setPosition(df::Vector(70, 60));
+			p_cur_obj->setPosition(df::Vector(70, 75));
 		}
 
 		if (p_cur_obj->getType() != "Checkpoint" && p_cur_obj->getType() != "Wall" && p_cur_obj->getType() != "Hero" && p_cur_obj->getType() != "ViewObject" &&
@@ -60,12 +61,12 @@ void Checkpoint::nextLevel() {
 
 	}
 
-	if (level == 4) {
+	if (level == 2) {
 		Ground* ground = new Ground();
 		ground->setPosition(df::Vector(70, 80));
 
 		Ledge* ledge1 = new Ledge;
-		ledge1->setPosition(df::Vector(10, 63));
+		ledge1->setPosition(df::Vector(25, 63));
 
 		Ledge* ledge2 = new Ledge;
 		ledge2->setPosition(df::Vector(70, 40));
@@ -100,51 +101,55 @@ void Checkpoint::nextLevel() {
 			bat->setVelocity(new_spd);
 		}
 
-		Ledge* ledge1 = new Ledge;
-		ledge1->setPosition(df::Vector(100, 45));
+	/*	Ledge* ledge1 = new Ledge;
+		ledge1->setPosition(df::Vector(100, 65));
 
 		Ledge* ledge2 = new Ledge;
-		ledge2->setPosition(df::Vector(42, 35));
+		ledge2->setPosition(df::Vector(65, 45));
+
+		Ledge* ledge3 = new Ledge;
+		ledge3->setPosition(df::Vector(35, 35));*/
 
 		Skeleton* skel = new Skeleton(p_hero);
 		skel->setPosition(df::Vector(40, 45));
 	}
-	else if (level == 2) {
+	else if (level == 4) {
+		std::cout << "Level 4";
 		Ground* ground = new Ground();
 		ground->setPosition(df::Vector(70, 80));
 
 		Ledge* ledge1 = new Ledge;
-		ledge1->setPosition(df::Vector(10, 55));
+		ledge1->setPosition(df::Vector(10, 65));
 
 		Ledge* ledge2 = new Ledge;
-		ledge2->setPosition(df::Vector(50, 55));
+		ledge2->setPosition(df::Vector(50, 65));
 
 		Ledge* ledge3 = new Ledge;
-		ledge3->setPosition(df::Vector(90, 55));
+		ledge3->setPosition(df::Vector(90, 65));
 
 		Mole* mole1 = new Mole;
-		mole1->setPosition(df::Vector(15, 45));
+		mole1->setPosition(df::Vector(15, 55));
 
 		Mole* mole2 = new Mole;
-		mole2->setPosition(df::Vector(50, 45));
+		mole2->setPosition(df::Vector(50, 55));
 
 		Mole* mole3 = new Mole;
-		mole3->setPosition(df::Vector(100, 45));
+		mole3->setPosition(df::Vector(100, 55));
 
 		Ledge* ledge4 = new Ledge;
-		ledge4->setPosition(df::Vector(25, 40));
+		ledge4->setPosition(df::Vector(25, 50));
 
 		Ledge* ledge5 = new Ledge;
-		ledge5->setPosition(df::Vector(75, 40));
+		ledge5->setPosition(df::Vector(75, 50));
 
 		Mole* mole4 = new Mole;
-		mole4->setPosition(df::Vector(25, 35));
+		mole4->setPosition(df::Vector(25, 45));
 
 		Mole* mole5 = new Mole;
-		mole5->setPosition(df::Vector(75, 35));
+		mole5->setPosition(df::Vector(75, 45));
 
 		Ledge* ledge6 = new Ledge;
-		ledge6->setPosition(df::Vector(50, 25));
+		ledge6->setPosition(df::Vector(50, 35));
 
 		Skeleton* skel = new Skeleton(p_hero);
 		skel->setPosition(df::Vector(85, 10));
@@ -153,23 +158,20 @@ void Checkpoint::nextLevel() {
 
 void Checkpoint::win() {
 
-	p_hero->setPosition(df::Vector(70, 60));
+	p_hero->setPosition(df::Vector(0, -500));
 
 	df::ObjectList objs = WM.getAllObjects();
 
 	//Delete all objects from level to set up winning screen
 	for (int i = 0; i < objs.getCount(); i++) {
 		df::Object* p_cur_obj = objs[i];
-
-		if ((p_cur_obj->getType() == "Ground") || (p_cur_obj->getType() == "Mole") || (p_cur_obj->getType() == "Skeleton") || (p_cur_obj->getType() == "Bat"))
+		if(p_cur_obj->getType()!="Hero")
 			WM.markForDelete(p_cur_obj);
 
 	}
+	new GameWin;
 
-	Ground* ground = new Ground;
-	ground->setPosition(df::Vector(70, 80));
+	
 
 	//create win view object
 }
-
-

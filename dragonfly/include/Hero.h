@@ -7,10 +7,12 @@
 #include "EventMouse.h"
 #include "Object.h"
 #include "Reticle.h"
-
+#include "Sound.h"
 class Hero : public df::Object {
 
  private:
+	 df::Sound *jumpS;
+	 df::Sound *hit;
 
 	 float allowScoreDec = 100;
 

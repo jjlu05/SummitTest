@@ -10,6 +10,7 @@ class GameStart : public df::Object {
 
  private:
   df::Music *p_music;
+  df::Music *wind;
   void start();
   
  public:

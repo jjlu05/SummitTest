@@ -50,6 +50,12 @@ int main(int argc, char* argv[]) {
 void loadResources(void) {
     RM.loadSprite("skeleton.txt", "skeleton");
     RM.loadSprite("mole-right.txt", "mole-right");
+    RM.loadSprite("background.txt", "background");
+    RM.loadSprite("hero-extend.txt", "hero-extend");
+
+
+    
+    RM.loadSprite("win.txt", "win1");
 
     RM.loadSprite("mole.txt", "mole");
     RM.loadSprite("arrow.txt", "arrow");
@@ -71,8 +77,26 @@ void loadResources(void) {
     RM.loadSound("fire.wav", "fire");
     RM.loadSound("explode.wav", "explode");
     RM.loadSound("nuke.wav", "nuke");
+    RM.loadSound("jump-sound.wav", "jump");
+    RM.loadSound("footsteps.wav", "footsteps");
+
+
+
+    RM.loadSound("chargeUp.wav", "chargeUp");
+    RM.loadSound("win.wav", "win");
+    RM.loadSound("fall.wav", "fall");
     RM.loadSound("game-over.wav", "game over");
+    RM.loadSound("scream.wav", "scream");
+    RM.loadSound("boom.wav", "boom");
+
+
+
+    RM.loadMusic("wind.wav", "wind");
     RM.loadMusic("start-music.wav", "start music");
+    RM.loadMusic("In-game-music.wav", "igm");
+    RM.loadMusic("menu-music.wav", "menu");
+
+
 }
 
 // Populate world with some objects.

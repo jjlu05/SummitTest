@@ -20,7 +20,7 @@ GameOver::GameOver() {
 
     // Link to "message" sprite.
     if (setSprite("gameover") == 0)
-        time_to_live = getAnimation().getSprite()->getFrameCount() * 15;
+        time_to_live = getAnimation().getSprite()->getFrameCount() * 10;
     else
         time_to_live = 0;
 
@@ -33,8 +33,9 @@ GameOver::GameOver() {
 #endif
 
     // Play "game over" sound.
-    df::Sound* p_sound = RM.getSound("game over");
+    df::Sound* p_sound = RM.getSound("scream");
     p_sound->play();
+
 }
 
 // When done, game over so shut down.

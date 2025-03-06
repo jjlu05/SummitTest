@@ -47,5 +47,6 @@ public:
 	Bar();
 	~Bar();
 	int eventHandler(const df::Event* p_e);
+	void reset();
 };
 #endif

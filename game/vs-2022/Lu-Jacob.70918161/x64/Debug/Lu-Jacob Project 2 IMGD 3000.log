@@ -1,19 +1,14 @@
-﻿  Hero.cpp
+﻿  Bar.cpp
 C:\Users\jacob\SummitRush\SFML-3.0\include\SFML\System\Exception.hpp(41,47): warning C4275: non dll-interface class 'std::runtime_error' used as base for dll-interface class 'sf::Exception'
-  (compiling source file '../../dragonfly/include/Hero.cpp')
+  (compiling source file '../../dragonfly/include/Bar.cpp')
       C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\stdexcept(100,19):
       see declaration of 'std::runtime_error'
       C:\Users\jacob\SummitRush\SFML-3.0\include\SFML\System\Exception.hpp(41,23):
       see declaration of 'sf::Exception'
   
-C:\Users\jacob\SummitTest\dragonfly\include\Hero.cpp(181,45): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\jacob\SummitTest\dragonfly\include\Hero.cpp(186,41): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\jacob\SummitTest\dragonfly\include\Hero.cpp(208,44): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\jacob\SummitTest\dragonfly\include\Hero.cpp(213,40): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\jacob\SummitTest\dragonfly\include\Hero.cpp(248,30): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\jacob\SummitTest\dragonfly\include\Hero.cpp(272,72): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\jacob\SummitTest\dragonfly\include\Hero.cpp(272,44): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\jacob\SummitTest\dragonfly\include\Hero.cpp(290,73): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\jacob\SummitTest\dragonfly\include\Hero.cpp(290,45): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\jacob\SummitTest\dragonfly\include\Hero.cpp(410,28): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\jacob\SummitTest\dragonfly\include\Bar.cpp(127,37): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\jacob\SummitTest\dragonfly\include\Bar.cpp(145,36): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\jacob\SummitTest\dragonfly\include\Bar.cpp(181,30): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\jacob\SummitTest\dragonfly\include\Bar.cpp(245,66): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\jacob\SummitTest\dragonfly\include\Bar.cpp(291,28): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
   Lu-Jacob Project 2 IMGD 3000.vcxproj -> C:\Users\jacob\Downloads\Lu-Jacob Project 2 IMGD 3000\dragonfly\x64\Debug\Lu-Jacob Project 2 IMGD 3000.exe

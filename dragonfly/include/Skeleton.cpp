@@ -5,6 +5,7 @@
 #include "Arrow.h"
 
 #include "WorldManager.h"
+#include "EventOut.h"
 #include <cmath>
 
 Skeleton::Skeleton(Hero* a_hero) {
@@ -57,12 +58,21 @@ void Skeleton::step() {
 }
 
 void Skeleton::hit(const df::EventCollision* p_collision_event) {
-
+	df::EventOut ev1;
 	//Collision with player
-	if (((p_collision_event->getObject1()->getType()) == "Hero") ||
-		((p_collision_event->getObject2()->getType()) == "Hero")) {
-		WM.markForDelete(p_collision_event->getObject1());
-		WM.markForDelete(p_collision_event->getObject2());
+	if (p_collision_event->getObject1()->getType() == "Hero") {
+		Hero* hero = dynamic_cast<Hero*>(p_collision_event->getObject1());
+
+		if (hero->returnLives() > 0) {
+			WM.onEvent(&ev1);
+		}
+	}
+	else if (p_collision_event->getObject2()->getType() == "Hero") {
+		Hero* hero = dynamic_cast<Hero*>(p_collision_event->getObject2());
+
+		if (hero->returnLives() > 0) {
+			WM.onEvent(&ev1);
+		}
 	}
 }
 

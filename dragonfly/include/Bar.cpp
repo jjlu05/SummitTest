@@ -73,21 +73,21 @@ Bar::~Bar() {
      }
      WM.markForDelete(temp);*/
      // Create GameOver object.
-    new GameOver;
+    //new GameOver;
 
     // Make big explosion.
-    for (int i = -8; i <= 8; i += 5) {
-        for (int j = -5; j <= 5; j += 3) {
-            df::Vector temp_pos = this->getPosition();
-            temp_pos.setX(this->getPosition().getX() + i);
-            temp_pos.setY(this->getPosition().getY() + j);
-            Explosion* p_explosion = new Explosion;
-            p_explosion->setPosition(temp_pos);
-        }
-    }
+    //for (int i = -8; i <= 8; i += 5) {
+    //    for (int j = -5; j <= 5; j += 3) {
+    //        df::Vector temp_pos = this->getPosition();
+    //        temp_pos.setX(this->getPosition().getX() + i);
+    //        temp_pos.setY(this->getPosition().getY() + j);
+    //        Explosion* p_explosion = new Explosion;
+    //        p_explosion->setPosition(temp_pos);
+    //    }
+    //}
 
-    // Mark Reticle for deletion.
-    WM.markForDelete(p_reticle);
+    //// Mark Reticle for deletion.
+    //WM.markForDelete(p_reticle);
 }
 
 // Handle event.
@@ -298,3 +298,10 @@ void Bar::step() {
 
 }
  
+
+
+
+void Bar::reset() {
+    setSprite("bar");
+
+}
